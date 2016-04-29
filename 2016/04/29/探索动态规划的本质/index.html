@@ -1,0 +1,549 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>探索动态规划的本质 | Lisiur&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lisiur">
+    
+
+    
+    <meta name="description" content="一、什么是动态规划：
+dynamic programming is a method for solving a complex problem by breakingit down into a collection of simpler subproblems, solving each of those subproblemsjust once, and storing their solu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="探索动态规划的本质">
+<meta property="og:url" content="http://daikanshan.github.io/2016/04/29/探索动态规划的本质/index.html">
+<meta property="og:site_name" content="Lisiur's Blog">
+<meta property="og:description" content="一、什么是动态规划：
+dynamic programming is a method for solving a complex problem by breakingit down into a collection of simpler subproblems, solving each of those subproblemsjust once, and storing their solu">
+<meta property="og:updated_time" content="2016-04-29T15:27:44.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="探索动态规划的本质">
+<meta name="twitter:description" content="一、什么是动态规划：
+dynamic programming is a method for solving a complex problem by breakingit down into a collection of simpler subproblems, solving each of those subproblemsjust once, and storing their solu">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Lisiur&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Lisiur&#39;s Blog" title="Lisiur&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Lisiur&#39;s Blog">Lisiur&#39;s Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:daikanshan.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/29/探索动态规划的本质/" title="探索动态规划的本质" itemprop="url">探索动态规划的本质</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lisiur" target="_blank" itemprop="author">Lisiur</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-29T15:26:59.000Z" itemprop="datePublished"> Published 2016-04-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是动态规划："><span class="toc-number">1.</span> <span class="toc-text">一、什么是动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、什么是状态？什么是状态转移方程？"><span class="toc-number">2.</span> <span class="toc-text">二、什么是状态？什么是状态转移方程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、动态规划本质的探索："><span class="toc-number">3.</span> <span class="toc-text">三、动态规划本质的探索：</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="一、什么是动态规划："><a href="#一、什么是动态规划：" class="headerlink" title="一、什么是动态规划："></a>一、什么是动态规划：</h2><blockquote>
+<p><strong>dynamic programming</strong> is a method for solving a complex problem by breaking<br>it down into a collection of simpler subproblems, solving each of those subproblems<br>just once, and storing their solutions - ideally, using a memory-based data structure.<a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" rel="external">^1</a></p>
+</blockquote>
+<p>以上定义摘自维基百科</p>
+<p>下面则是百度百科里的解释：</p>
+<blockquote>
+<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构</strong>性质的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
+<p>动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），<br>再合并子问题的解以得出原问题的解。</p>
+<p>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给<br>定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重<br>复子问题的数目关于输入的规模呈指数增长时特别有用。<a href="摘自《算法导论》之“动态规划”">^2</a></p>
+</blockquote>
+<p>由此，我们可以简略的概括下：“动态规划”通过把原来较复杂的问题递归的分解<br>为一组较简单的子问题，并通过存储每个子问题的解，使得每个子问题只计算一次就可以解决原问题的思想。</p>
+<p>这里的某一类问题通常情况下是指某些<strong>最优化问题</strong>。这类问题可以有很多可行解，每个解都有一个值<br>，我们希望寻找具有最优值（最小值或最大值）的解。[^3]</p>
+<p>一言以蔽之——“动态规划”是解决某类问题的方法（或思想而不是算法）</p>
+<p>根据以上定义，很多人可能会觉得动态规划的真谛就是通过递归或递推，用<strong>额外的空间记录下已解决的子问题的解</strong>，<br>从而通过空间换时间来降低时间复杂度。其实不然，动态规划的本质是<em>对每个阶段<strong>状态</strong>的定义以及当前状态与下一阶段<strong>状态<br>关系</strong>的定义（状态转移方程）</em>。而所谓的“存储每个子问题的解”则是隐含的包含在状态关系里，那些“额外的记录空间”<br>则只是其表现形式而非其内涵。</p>
+<h2 id="二、什么是状态？什么是状态转移方程？"><a href="#二、什么是状态？什么是状态转移方程？" class="headerlink" title="二、什么是状态？什么是状态转移方程？"></a>二、什么是状态？什么是状态转移方程？</h2><p>什么是状态？</p>
+<p>我们先从最简单的Fibonacci数列谈起：</p>
+<p>比如说我想计算第100个非波那契数，每一个非波那契数就是这个问题的一个状态，每求一个新数字只需要之前的两个状态。<br>所以同一个时刻，最多只需要保存两个状态，空间复杂度就是常数；每计算一个新状态所需要的时间也是常数且状态是线性<br>递增的，所以时间复杂度也是线性的。上面这种状态计算很直接，只需要依照固定的模式从旧状态计算出新状态就行<br>（a[i]=a[i-1]+a[i-2]），不需要考虑是不是需要更多的状态，也不需要选择哪些旧状态来计算新状态。</p>
+<p>我们再来看一个动态规划的教学必备题：</p>
+<blockquote>
+<p>给定一个数列，长度为N，求这个数列的最长上升（递增）子数列（LIS）的长度.以1 7 2 8 3 4为例。这个数列<br>的最长递增子数列是 1 2 3 4，长度为4；次长的长度为3， 包括 1 7 8; 1 2 3 等.</p>
+</blockquote>
+<p>要解决这个问题，我们首先要定义这个问题和这个问题的子问题。有人可能会问了，题目都已经在这了，我们还<br>需定义这个问题吗？需要，原因就是这个问题在字面上看，找不出子问题，而没有子问题，这个题目就没办法解决。<br>所以我们来重新定义这个问题：</p>
+<blockquote>
+<p>给定一个数列，长度为N，</p>
+<p>设F(k)为：以数列中第k项结尾的最长递增子序列的长度.</p>
+<p>求F(1)..F(N)中的最大值。</p>
+</blockquote>
+<p>显然，这个新问题与原问题等价。而对于F(k)来讲，F(1)..F(k-1)都是F(k)的子问题：因为以第k项结尾的最长递<br>增子序列（下称LIS），包含着以第1..k-1中某项结尾的LIS。上述的新问题就可以叫做状态，定义中的“为数列中第<br>k项结尾的LIS的长度”，就叫做对状态的定义。</p>
+<p>什么是状态转移方程？</p>
+<p>上述状态定义好之后，状态和状态之间的关系式，就叫做状态转移方程。</p>
+<p>比如，对于LIS问题。<br>设F(k)：以数列中第k项结尾的最长递增子序列的长度.<br>设A为题中数列，状态转移方程为：</p>
+<blockquote>
+<p>F(1) = 1（根据状态定义导出边界情况）</p>
+<p>F(k) = max(F(i)+1|A(k)&gt;A(i),i∈(1..k-1))(k&gt;1)</p>
+</blockquote>
+<p>用文字解释一下是：以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，<br>取遍i的所有值（i小于k）。</p>
+<p><strong>状态转移方程就是带有条件的递推式</strong>。</p>
+<h2 id="三、动态规划本质的探索："><a href="#三、动态规划本质的探索：" class="headerlink" title="三、动态规划本质的探索："></a>三、动态规划本质的探索：</h2><p>对于上述LIS问题我们可以进一步探索。<br>Talk is cheap , show me the code:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lis</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *d = new <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">        d[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; ++j)</span><br><span class="line">            <span class="keyword">if</span>(A[j]&lt;=A[i] &amp;&amp; d[j]+<span class="number">1</span>&gt;d[i])</span><br><span class="line">                d[i] = d[j] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(d[i]&gt;len) len = d[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] d;</span><br><span class="line">    return len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[] = &#123;</span><br><span class="line">        <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">7</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;lis(A, <span class="number">6</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们看到，这里多定义了一个数组d来存储每个阶段（状态）的最大值，即所谓的额外的存储空间，然而<br>这并不是动态规划的本质，通过上文的分析，我们知道，下一阶段的状态可由上一阶段的状态得到（我们已经定义了<br>状态和状态转移方程）。因此，额外的数组d是为了保存每个当前状态而开设的，如果没有状态及状态转移方程的定义，<br>数组d是没有任何意义的，换句话说额外的存储空间依附于前后状态的关系，因为有了状态关系才有了额外的存储空间。</p>
+<p>再拿fibonacci数列举例：</p>
+<blockquote>
+<p>定义fib(n):fibonacci数列第n项的值。</p>
+<p>求解第10项fibonacci数列fib(10)</p>
+</blockquote>
+<p>我们可以定义状态：</p>
+<blockquote>
+<p>第n个状态为fib(n)的值。</p>
+</blockquote>
+<p>状态转移方程：</p>
+<blockquote>
+<p>fib(1)=1,fib(2)=1</p>
+<p>fib(k) = fib(k-1)+fib(k-2) (k&gt;2)</p>
+</blockquote>
+<p>这里，我们可以通过多定义一个数组d来保存每个状态的值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostram&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> *d;</span><br><span class="line">  d[<span class="number">1</span>] = d[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    d[i] = d[i<span class="number">-1</span>]+d[i<span class="number">-2</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  return d[n];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;fib(<span class="number">10</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的数组d是为了保存每个状态而定义的，其实我们也可以不用开辟额外的存储空间来定义这个数组d：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostram&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a,b;</span><br><span class="line">  a = b =<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    t = a+b;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">  &#125;</span><br><span class="line">  return t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;fib(<span class="number">10</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于LIS问题能不能不使用额外的存储空间呢，答案是否定的。为什么，因为其状态转移方程的表示”F(k) = max(F(i)+1|A(k)&gt;A(i),i∈(1..k-1))(k&gt;1)”<br>注定了使用一个额外的数组会更方便点。</p>
+<p>由此可见，动态规划的本质是<em>对每个阶段<strong>状态</strong>的定义以及当前状态与下一阶段<strong>状态<br>关系</strong>的定义（状态转移方程）</em>，而不是所谓的记忆化存储。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://daikanshan.github.io/2016/04/29/探索动态规划的本质/" data-title="探索动态规划的本质 | Lisiur&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/29/test/"  title="test">
+ <strong>下一篇：</strong><br/> 
+ <span>test
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/29/探索动态规划的本质/" data-title="探索动态规划的本质" data-url="http://daikanshan.github.io/2016/04/29/探索动态规划的本质/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是动态规划："><span class="toc-number">1.</span> <span class="toc-text">一、什么是动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、什么是状态？什么是状态转移方程？"><span class="toc-number">2.</span> <span class="toc-text">二、什么是状态？什么是状态转移方程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、动态规划本质的探索："><span class="toc-number">3.</span> <span class="toc-text">三、动态规划本质的探索：</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="daikanshan" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/test/" title="test">test<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://lisiur.com" target="_blank" title="Lisiur&#39;s Blog">Lisiur&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Lisiur <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5772889913" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/daikanshan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/lisiur" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:lisiur@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Lisiur">Lisiur</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"lisiurblog"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
