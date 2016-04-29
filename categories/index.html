@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Lisiur&#39;s Blog</title>
+    <title>categories | Lisiur&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
@@ -13,12 +13,13 @@
     
     <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lisiur's Blog">
-<meta property="og:url" content="http://daikanshan.github.io/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://daikanshan.github.io/categories/index.html">
 <meta property="og:site_name" content="Lisiur's Blog">
 <meta property="og:description">
+<meta property="og:updated_time" content="2016-04-29T13:30:02.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lisiur's Blog">
+<meta name="twitter:title" content="categories">
 <meta name="twitter:description">
 
     
@@ -34,9 +35,9 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-  <body>
-    <header>
-      
+    <body>
+      <header>
+        
 <div>
 		
 			<div id="imglogo">
@@ -75,88 +76,20 @@
 				</ul>
 			</nav>			
 </div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/04/29/hello-world/" title="Hello World" itemprop="url">
-  
-    <h1 itemprop="name">Hello World</h1>
-    
-     
-           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
-        
-    
-    <time datetime="2016-04-29T13:03:47.887Z" itemprop="datePublished">2016-04-29</time>
-  </a>
-</section>
-
-
-
-
-
-
+      </header>
+      <div id="container">
+          
+<div class="archive-title" >
+<h2 class="category-icon">Categories</h2>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github Card</p>
-<div class="github-card" data-github="daikanshan" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-
-  
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li></ul>
-  </div>
-
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">Links</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://lisiur.com" target="_blank" title="Lisiur&#39;s Blog">Lisiur&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
+<div id="main" class="archive-part">
+<div class="all-list-box"></div>
 </div>
 
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div>
 
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
+      </div>
+      <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -201,7 +134,7 @@
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+      <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 <script src="/js/jquery.qrcode-0.12.0.min.js"></script>
@@ -254,10 +187,40 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"lisiurblog"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
 
 
 
 
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var list    = $('.archive-title a'),
+      box     = $('.all-list-box'),
+      first   = $('.archive-title a:first-of-type');
+      box.load(first.attr('data-src').toString()+' #archive-page');
+      first.addClass('current');
+  list.each(function(){
+    $(this).click(function(){
+      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
+      box.load(listSrc);
+      list.removeClass('current');
+      $(this).addClass('current');
+     });  
+    });
+  }); 
+</script>
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
@@ -320,5 +283,5 @@ var _hmt = _hmt || [];
 
 <!-- Tiny_search End -->
 
-  </body>
- </html>
+    </body>
+   </html>
