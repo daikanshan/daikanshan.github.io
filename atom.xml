@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-04-29T13:03:47.887Z</updated>
+  <updated>2016-04-29T15:15:37.123Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://daikanshan.github.io/2016/04/29/test/"/>
+    <id>http://daikanshan.github.io/2016/04/29/test/</id>
+    <published>2016-04-29T15:14:30.000Z</published>
+    <updated>2016-04-29T15:15:37.123Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;h1&quot;&gt;&lt;a href=&quot;#h1&quot; class=&quot;headerlink&quot; title=&quot;h1&quot;&gt;&lt;/a&gt;h1&lt;/h1&gt;&lt;h2 id=&quot;h2&quot;&gt;&lt;a href=&quot;#h2&quot; class=&quot;headerlink&quot; title=&quot;h2&quot;&gt;&lt;/a&gt;h2&lt;/h2&gt;&lt;h3 id=&quot;h3&quot;&gt;&lt;a href=&quot;#h3&quot; class=&quot;headerlink&quot; title=&quot;h3&quot;&gt;&lt;/a&gt;h3&lt;/h3&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;puts &lt;span class=&quot;string&quot;&gt;&quot;hello world&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;h1&quot;&gt;&lt;a href=&quot;#h1&quot; class=&quot;headerlink&quot; title=&quot;h1&quot;&gt;&lt;/a&gt;h1&lt;/h1&gt;&lt;h2 id=&quot;h2&quot;&gt;&lt;a href=&quot;#h2&quot; class=&quot;headerlink&quot; title=&quot;h2&quot;&gt;&lt;/a&gt;h2&lt;/h2&gt;&lt;h3 id
+    
+    </summary>
+    
+      <category term="test" scheme="http://daikanshan.github.io/categories/test/"/>
+    
+    
+      <category term="test" scheme="http://daikanshan.github.io/tags/test/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
