@@ -1810,7 +1810,7 @@ pre .css ~ * .id {
   left: 30px;
 }
 .switch-btn .tips-box .tips-inner {
-  padding: 0;
+  padding: 10;
   background-color: #fff;
   color: #000;
   text-align: center;
@@ -1818,8 +1818,8 @@ pre .css ~ * .id {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   z-index: 99;
-  left: 0;
-  right: 0;
+  left: -80px;
+  right: -80px;
 }
 .switch-btn .tips-box .tips-inner li {
   padding: 6px 0;
