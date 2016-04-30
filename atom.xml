@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-04-30T05:35:40.822Z</updated>
+  <updated>2016-04-30T12:50:59.254Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>背包九讲</title>
+    <link href="http://daikanshan.github.io/2016/04/30/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/"/>
+    <id>http://daikanshan.github.io/2016/04/30/背包九讲/</id>
+    <published>2016-04-30T11:42:00.000Z</published>
+    <updated>2016-04-30T12:50:59.254Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;《背包问题九讲》笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;第一讲-01背包问题&quot;&gt;&lt;a href=&quot;#第一讲-01背包问题&quot; class=&quot;headerlink&quot; title=&quot;第一讲 01背包问题&quot;&gt;&lt;/a&gt;第一讲 01背包问题&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;有N件物品和一个容量为V的背包。第i件物品的费用是c[i],价值是w[i]。求解将哪些物品装入背包可使价&lt;br&gt;值总和最大。&lt;/p&gt;
+&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;用子问题定义状态：即f[i][v]表示前i件物品恰放入一个容量为v的背包可以获得的最大价值。则其状态转移方程为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; &lt;code&gt;f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;需要说明的一点是，如果f[i][v]已经被求解，则其表示当前v重量下的最优解。&lt;br&gt;也就是说，在求解f[i][v]时，所有f[p]&lt;a href=&quot;p\&amp;lt;i || p==i &amp;amp;&amp;amp; q\&amp;lt;V&quot;&gt;q&lt;/a&gt;的值都是p件物品，q重量下的最优解。&lt;/p&gt;
+&lt;p&gt;此时求i件物品在v重量下的最优解，我们只需考虑，第i件物品拿不拿两种情况，&lt;br&gt;若拿，则f[i][v] = f[i-1]&lt;a href=&quot;前i-1件物品，v-c[i]重量下的最优解&quot;&gt;v-c[i]&lt;/a&gt;+w[i]&lt;br&gt;若不拿，则f[i][v] = f[i-1]&lt;a href=&quot;前i-1件物品，v重量下的最优解&quot;&gt;v&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;优化空间复杂度&quot;&gt;&lt;a href=&quot;#优化空间复杂度&quot; class=&quot;headerlink&quot; title=&quot;优化空间复杂度&quot;&gt;&lt;/a&gt;优化空间复杂度&lt;/h2&gt;&lt;p&gt;以上方法的时间和空间复杂度均为O(VN),其中时间复杂度应该已经不能再优化了,但空间复杂度却可以&lt;br&gt;优化到O。&lt;br&gt;先考虑上面讲的基本思路如何实现,肯定是有一个主循环i=1..N,每次算出来二维数组f[i][0..V]的所有值。&lt;br&gt;那么,如果只用一个数组f[0..V],能不能保证第i次循环结束后f[v]中表示的就是我们定义的状态f[i][v]呢?&lt;br&gt;f[i][v]是由f[i-1][v]和f[i-1][v-c[i]]两个子问题递推而来,能否保证在推f[i][v]时(也即在第i次主循环中推f[v]时)能够得到f[i-1][v]和f[i-1][v-c[i]]的值呢?&lt;br&gt;事实上,这要求在每次主循环中我们以v=V..0的顺序推f[v],这样才能保证推f[v]时f[v-c[i]]保存的是状态f[i-1][v-c[i]]的值。(以上为原文)&lt;br&gt;伪代码如下:&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1.&lt;/span&gt;.N&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; v = V.&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f[v] = max&amp;#123;f[v],f[v-c[i]]+w[i]&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;理解上一段话和伪代码很重要，我们之所以要把V逆序，是因为我们希望在推第i个f[v]（f[i][v]）时，第i-1个f[v]（f[i-1][v]）和f&lt;a href=&quot;f[i-1][v-c[i]]&quot;&gt;v-c[i]&lt;/a&gt;都已经是最优解。&lt;br&gt;换句话说我们要推较大的v时需要知道较小的v，这样就不能先对较小的v做出改变，不然较大的v就没法算了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;《背包问题九讲》笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;第一讲-01背包问题&quot;&gt;&lt;a href=&quot;#第一讲-01背包问题&quot; class=&quot;headerlink&quot; title=&quot;第一讲 01背包问题&quot;&gt;&lt;/a&gt;第一讲 01背包问题&lt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://daikanshan.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="背包" scheme="http://daikanshan.github.io/tags/%E8%83%8C%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>threejs使用概述</title>

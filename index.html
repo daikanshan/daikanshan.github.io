@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/threejs/" style="font-size: 10px;">threejs</a>
+						<a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
 					</div>
 				</section>
 				
@@ -187,6 +187,78 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-背包九讲" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/30/背包九讲/" class="article-date">
+  	<time datetime="2016-04-30T11:42:00.000Z" itemprop="datePublished">2016-04-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/30/背包九讲/">背包九讲</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>《背包问题九讲》笔记</p>
+</blockquote>
+<h1 id="第一讲-01背包问题"><a href="#第一讲-01背包问题" class="headerlink" title="第一讲 01背包问题"></a>第一讲 01背包问题</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i],价值是w[i]。求解将哪些物品装入背包可使价<br>值总和最大。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>用子问题定义状态：即f[i][v]表示前i件物品恰放入一个容量为v的背包可以获得的最大价值。则其状态转移方程为：</p>
+<blockquote>
+<p> <code>f[i][v]=max{f[i-1][v],f[i-1][v-c[i]]+w[i]}</code></p>
+</blockquote>
+<p>需要说明的一点是，如果f[i][v]已经被求解，则其表示当前v重量下的最优解。<br>也就是说，在求解f[i][v]时，所有f[p]<a href="p\&lt;i || p==i &amp;&amp; q\&lt;V">q</a>的值都是p件物品，q重量下的最优解。</p>
+<p>此时求i件物品在v重量下的最优解，我们只需考虑，第i件物品拿不拿两种情况，<br>若拿，则f[i][v] = f[i-1]<a href="前i-1件物品，v-c[i]重量下的最优解">v-c[i]</a>+w[i]<br>若不拿，则f[i][v] = f[i-1]<a href="前i-1件物品，v重量下的最优解">v</a></p>
+<h2 id="优化空间复杂度"><a href="#优化空间复杂度" class="headerlink" title="优化空间复杂度"></a>优化空间复杂度</h2><p>以上方法的时间和空间复杂度均为O(VN),其中时间复杂度应该已经不能再优化了,但空间复杂度却可以<br>优化到O。<br>先考虑上面讲的基本思路如何实现,肯定是有一个主循环i=1..N,每次算出来二维数组f[i][0..V]的所有值。<br>那么,如果只用一个数组f[0..V],能不能保证第i次循环结束后f[v]中表示的就是我们定义的状态f[i][v]呢?<br>f[i][v]是由f[i-1][v]和f[i-1][v-c[i]]两个子问题递推而来,能否保证在推f[i][v]时(也即在第i次主循环中推f[v]时)能够得到f[i-1][v]和f[i-1][v-c[i]]的值呢?<br>事实上,这要求在每次主循环中我们以v=V..0的顺序推f[v],这样才能保证推f[v]时f[v-c[i]]保存的是状态f[i-1][v-c[i]]的值。(以上为原文)<br>伪代码如下:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1.</span>.N</span><br><span class="line">  <span class="keyword">for</span> v = V.<span class="number">.0</span></span><br><span class="line">    f[v] = max&#123;f[v],f[v-c[i]]+w[i]&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>理解上一段话和伪代码很重要，我们之所以要把V逆序，是因为我们希望在推第i个f[v]（f[i][v]）时，第i-1个f[v]（f[i-1][v]）和f<a href="f[i-1][v-c[i]]">v-c[i]</a>都已经是最优解。<br>换句话说我们要推较大的v时需要知道较小的v，这样就不能先对较小的v做出改变，不然较大的v就没法算了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包/">背包</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/算法/">算法</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-threejs使用概述" class="article article-type-post" itemscope itemprop="blogPost">
   
