@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/test/" style="font-size: 10px;">test</a>
+						
 					</div>
 				</section>
 				
@@ -214,7 +214,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* p是一系列矩阵的系数</span><br><span class="line">* n是矩阵的个数</span><br><span class="line">* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘</span><br><span class="line">* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MatrixChain</span><span class="params">(<span class="keyword">int</span> *p,<span class="keyword">int</span> n,<span class="keyword">int</span> **m,<span class="keyword">int</span> **s)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    m[i][i] = <span class="number">0</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">2</span>;r&lt;=n;r++) &#123; <span class="comment">//自底向上的动规</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-r+<span class="number">1</span>;i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> j=i+r<span class="number">-1</span>;</span><br><span class="line">      m[i][j] = m[i+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[i]*p[j];</span><br><span class="line">      s[i][j] = i;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=i+<span class="number">1</span>;k&lt;j;k++) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">        <span class="keyword">if</span>(t&lt;m[i][j])&#123;</span><br><span class="line">          m[i][j] = t;</span><br><span class="line">          s[i][j] = k;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* p是一系列矩阵的系数</span><br><span class="line">* n是矩阵的个数</span><br><span class="line">* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘</span><br><span class="line">* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MatrixChain</span><span class="params">(<span class="keyword">int</span> *p,<span class="keyword">int</span> n,<span class="keyword">int</span> **m,<span class="keyword">int</span> **s)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    m[i][i] = <span class="number">0</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">2</span>;r&lt;=n;r++) &#123; <span class="comment">//自底向上的动规</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-r+<span class="number">1</span>;i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> j=i+r<span class="number">-1</span>;</span><br><span class="line">      m[i][j] = m[i+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[i]*p[j];</span><br><span class="line">      s[i][j] = i;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=i+<span class="number">1</span>;k&lt;j;k++) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">        <span class="keyword">if</span>(t&lt;m[i][j])&#123;</span><br><span class="line">          m[i][j] = t;</span><br><span class="line">          s[i][j] = k;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -267,65 +267,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、什么是动态规划："><a href="#一、什么是动态规划：" class="headerlink" title="一、什么是动态规划："></a>一、什么是动态规划：</h2><blockquote>
-<p><strong>dynamic programming</strong> is a method for solving a complex problem by breaking<br>it down into a collection of simpler subproblems, solving each of those subproblems<br>just once, and storing their solutions - ideally, using a memory-based data structure.<a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" rel="external">^1</a></p>
+<p><strong>dynamic programming</strong> is a method for solving a complex problem by breaking<br>it down into a collection of simpler subproblems, solving each of those subproblems<br>just once, and storing their solutions - ideally, using a memory-based data structure.<a href="https://en.wikipedia.org/wiki/Dynamic_programming">^1</a></p>
 </blockquote>
-<p>以上定义摘自维基百科</p>
-<p>下面则是百度百科里的解释：</p>
-<blockquote>
-<p>动态规划常常适用于有<strong>重叠子问题</strong>和<strong>最优子结构</strong>性质的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
-<p>动态规划背后的基本思想非常简单。大致上，若要解一个给定问题，我们需要解其不同部分（即子问题），<br>再合并子问题的解以得出原问题的解。</p>
-<p>通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给<br>定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重<br>复子问题的数目关于输入的规模呈指数增长时特别有用。<a href="摘自《算法导论》之“动态规划”">^2</a></p>
-</blockquote>
-<p>由此，我们可以简略的概括下：“动态规划”通过把原来较复杂的问题递归的分解<br>为一组较简单的子问题，并通过存储每个子问题的解，使得每个子问题只计算一次就可以解决原问题的思想。</p>
-<p>这里的某一类问题通常情况下是指某些<strong>最优化问题</strong>。这类问题可以有很多可行解，每个解都有一个值<br>，我们希望寻找具有最优值（最小值或最大值）的解。[^3]</p>
-<p>一言以蔽之——“动态规划”是解决某类问题的方法（或思想而不是算法）</p>
-<p>根据以上定义，很多人可能会觉得动态规划的真谛就是通过递归或递推，用<strong>额外的空间记录下已解决的子问题的解</strong>，<br>从而通过空间换时间来降低时间复杂度。其实不然，动态规划的本质是<em>对每个阶段<strong>状态</strong>的定义以及当前状态与下一阶段<strong>状态<br>关系</strong>的定义（状态转移方程）</em>。而所谓的“存储每个子问题的解”则是隐含的包含在状态关系里，那些“额外的记录空间”<br>则只是其表现形式而非其内涵。</p>
-<h2 id="二、什么是状态？什么是状态转移方程？"><a href="#二、什么是状态？什么是状态转移方程？" class="headerlink" title="二、什么是状态？什么是状态转移方程？"></a>二、什么是状态？什么是状态转移方程？</h2><p>什么是状态？</p>
-<p>我们先从最简单的Fibonacci数列谈起：</p>
-<p>比如说我想计算第100个非波那契数，每一个非波那契数就是这个问题的一个状态，每求一个新数字只需要之前的两个状态。<br>所以同一个时刻，最多只需要保存两个状态，空间复杂度就是常数；每计算一个新状态所需要的时间也是常数且状态是线性<br>递增的，所以时间复杂度也是线性的。上面这种状态计算很直接，只需要依照固定的模式从旧状态计算出新状态就行<br>（a[i]=a[i-1]+a[i-2]），不需要考虑是不是需要更多的状态，也不需要选择哪些旧状态来计算新状态。</p>
-<p>我们再来看一个动态规划的教学必备题：</p>
-<blockquote>
-<p>给定一个数列，长度为N，求这个数列的最长上升（递增）子数列（LIS）的长度.以1 7 2 8 3 4为例。这个数列<br>的最长递增子数列是 1 2 3 4，长度为4；次长的长度为3， 包括 1 7 8; 1 2 3 等.</p>
-</blockquote>
-<p>要解决这个问题，我们首先要定义这个问题和这个问题的子问题。有人可能会问了，题目都已经在这了，我们还<br>需定义这个问题吗？需要，原因就是这个问题在字面上看，找不出子问题，而没有子问题，这个题目就没办法解决。<br>所以我们来重新定义这个问题：</p>
-<blockquote>
-<p>给定一个数列，长度为N，</p>
-<p>设F(k)为：以数列中第k项结尾的最长递增子序列的长度.</p>
-<p>求F(1)..F(N)中的最大值。</p>
-</blockquote>
-<p>显然，这个新问题与原问题等价。而对于F(k)来讲，F(1)..F(k-1)都是F(k)的子问题：因为以第k项结尾的最长递<br>增子序列（下称LIS），包含着以第1..k-1中某项结尾的LIS。上述的新问题就可以叫做状态，定义中的“为数列中第<br>k项结尾的LIS的长度”，就叫做对状态的定义。</p>
-<p>什么是状态转移方程？</p>
-<p>上述状态定义好之后，状态和状态之间的关系式，就叫做状态转移方程。</p>
-<p>比如，对于LIS问题。<br>设F(k)：以数列中第k项结尾的最长递增子序列的长度.<br>设A为题中数列，状态转移方程为：</p>
-<blockquote>
-<p>F(1) = 1（根据状态定义导出边界情况）</p>
-<p>F(k) = max(F(i)+1|A(k)&gt;A(i),i∈(1..k-1))(k&gt;1)</p>
-</blockquote>
-<p>用文字解释一下是：以第k项结尾的LIS的长度是：保证第i项比第k项小的情况下，以第i项结尾的LIS长度加一的最大值，<br>取遍i的所有值（i小于k）。</p>
-<p><strong>状态转移方程就是带有条件的递推式</strong>。</p>
-<h2 id="三、动态规划本质的探索："><a href="#三、动态规划本质的探索：" class="headerlink" title="三、动态规划本质的探索："></a>三、动态规划本质的探索：</h2><p>对于上述LIS问题我们可以进一步探索。<br>Talk is cheap , show me the code:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lis</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *d = new <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i)&#123;</span><br><span class="line">        d[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; ++j)</span><br><span class="line">            <span class="keyword">if</span>(A[j]&lt;=A[i] &amp;&amp; d[j]+<span class="number">1</span>&gt;d[i])</span><br><span class="line">                d[i] = d[j] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(d[i]&gt;len) len = d[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] d;</span><br><span class="line">    return len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[] = &#123;</span><br><span class="line">        <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">7</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;lis(A, <span class="number">6</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我们看到，这里多定义了一个数组d来存储每个阶段（状态）的最大值，即所谓的额外的存储空间，然而<br>这并不是动态规划的本质，通过上文的分析，我们知道，下一阶段的状态可由上一阶段的状态得到（我们已经定义了<br>状态和状态转移方程）。因此，额外的数组d是为了保存每个当前状态而开设的，如果没有状态及状态转移方程的定义，<br>数组d是没有任何意义的，换句话说额外的存储空间依附于前后状态的关系，因为有了状态关系才有了额外的存储空间。</p>
-<p>再拿fibonacci数列举例：</p>
-<blockquote>
-<p>定义fib(n):fibonacci数列第n项的值。</p>
-<p>求解第10项fibonacci数列fib(10)</p>
-</blockquote>
-<p>我们可以定义状态：</p>
-<blockquote>
-<p>第n个状态为fib(n)的值。</p>
-</blockquote>
-<p>状态转移方程：</p>
-<blockquote>
-<p>fib(1)=1,fib(2)=1</p>
-<p>fib(k) = fib(k-1)+fib(k-2) (k&gt;2)</p>
-</blockquote>
-<p>这里，我们可以通过多定义一个数组d来保存每个状态的值：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostram&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> *d;</span><br><span class="line">  d[<span class="number">1</span>] = d[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    d[i] = d[i<span class="number">-1</span>]+d[i<span class="number">-2</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  return d[n];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;fib(<span class="number">10</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里的数组d是为了保存每个状态而定义的，其实我们也可以不用开辟额外的存储空间来定义这个数组d：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostram&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a,b;</span><br><span class="line">  a = b =<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    t = a+b;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">  &#125;</span><br><span class="line">  return t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;fib(<span class="number">10</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>至于LIS问题能不能不使用额外的存储空间呢，答案是否定的。为什么，因为其状态转移方程的表示”F(k) = max(F(i)+1|A(k)&gt;A(i),i∈(1..k-1))(k&gt;1)”<br>注定了使用一个额外的数组会更方便点。</p>
-<p>由此可见，动态规划的本质是<em>对每个阶段<strong>状态</strong>的定义以及当前状态与下一阶段<strong>状态<br>关系</strong>的定义（状态转移方程）</em>，而不是所谓的记忆化存储。</p>
-
       
     </div>
     
@@ -335,127 +278,9 @@
       
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/test/" class="article-date">
-  	<time datetime="2016-04-29T15:14:30.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/test/">test</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="h1"><a href="#h1" class="headerlink" title="h1"></a>h1</h1><h2 id="h2"><a href="#h2" class="headerlink" title="h2"></a>h2</h2><h3 id="h3"><a href="#h3" class="headerlink" title="h3"></a>h3</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">puts <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/test/">test</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/hello-world/" class="article-date">
-  	<time datetime="2016-04-29T13:03:47.887Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
+        <p class="article-more-link">
+          <a  href="/2016/04/29/探索动态规划的本质/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
