@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-04-29T15:33:41.607Z</updated>
+  <updated>2016-04-30T00:15:08.692Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://daikanshan.github.io/2016/04/30/test-1/"/>
+    <id>http://daikanshan.github.io/2016/04/30/test-1/</id>
+    <published>2016-04-30T00:14:36.000Z</published>
+    <updated>2016-04-30T00:15:08.692Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="essay" scheme="http://daikanshan.github.io/tags/essay/"/>
+    
+  </entry>
   
   <entry>
     <title>动态规划之矩阵连乘</title>
