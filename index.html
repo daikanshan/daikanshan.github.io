@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
+						<a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
 					</div>
 				</section>
 				
@@ -187,6 +187,104 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-欧拉函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/01/欧拉函数/" class="article-date">
+  	<time datetime="2016-05-01T08:24:07.000Z" itemprop="datePublished">2016-05-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/01/欧拉函数/">欧拉函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
+<p>假设φ(n)表示1..n-1中与n互质的数的个数。</p>
+<p>求解属于给定区间[L,R]中的值K，</p>
+<p>对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&lt;y。</p>
+</blockquote>
+<h1 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h1><p>定义：小于n的正整数中与n互质的数的个数。</p>
+<p>对于φ(n)，我们有这样三个性质：</p>
+<blockquote>
+<p>(1) 若n为素数，则<code>φ(n) = n - 1</code></p>
+</blockquote>
+<p>显然，由于n为素数，1..n-1与n都只有公因子1，因此<code>φ(n) = n - 1</code>。</p>
+<blockquote>
+<p>(2) 若<code>n = p^k</code>，p为素数（即n为单个素数的整数幂），则<code>φ(n) = (p-1)*p^(k-1)</code></p>
+</blockquote>
+<p>因为n是p的整数幂，因此所有p的倍数和n都不互质。小于n的p的倍数一共有<code>p^(k-1)-1</code>个，因此和n互质的个数为：</p>
+<p><code>p^k-1 - (p^(k-1)-1) = p^k - p^(k-1) = (p-1)*p^(k-1)</code></p>
+<blockquote>
+<p>(3) 若p和q互质，则<code>φ(p*q) = φ(p) * φ(q)</code></p>
+</blockquote>
+<p>对于所有小于pq的整数u，可以表示为<code>u=aq+r</code>。(a=0,1,2,…,p-1，r=0,1,…,q-1)。</p>
+<p>对于<code>u = aq + r</code>, 设<code>R = u mod p，0≤R&lt;q</code>。对于一个固定的r，设a1, a2满足<code>0 &lt;= a1, a2 &lt; p且a1≠a2</code>，有：</p>
+<p><code>u1 = a1*q+r, u2 = a2*q+r</code><br><code>u1-u2=(a1-a2)*q</code></p>
+<p>因为p与q互质，且<code>|a1-a2|&lt;p</code>，则|u1-u2|一定不是p的倍数。</p>
+<p>所以对于每一个固定的r，其对应的<code>p个u = a*q+r(a=0,1,2,...,p-1)</code>对<code>mod p</code>来说余数都不相同，即<code>u mod p</code>的结果恰好取遍0,1,…,p-1中的每一个数。</p>
+<p>下面我证明一个引理：<code>u mod p与p互质 &lt;=&gt; u与p互质</code>，其证明如下：</p>
+<p>假设a,b互质,c = a mod b。<br>假设c与b不互质，则存在d≥1，使得c=nd, b=md。<br>由于c = a mod b，因此a = kb + c，<br>则a = kmd + nd = (kn+m)d<br>因此d是a,b的公因数，与a,b互质矛盾。<br>假设不成立，所以c与b互质。</p>
+<p>因此对于任意一个确定的r，与其对应的p个u中恰好有φ(p)个与p互质。</p>
+<p>同理，由u = aq + r知r与q互质 &lt;=&gt; u与q互质。因此在0..q-1中恰好有φ(q)个r使得u与q互质。</p>
+<p>综上，当r与q互质的情况下，固定r可以得到φ(p)个与p和q都互质的数。</p>
+<p>满足条件的r一共用φ(q)个，所以一共能找到有φ(p) * φ(q)个与p和q都互质的数。</p>
+<p>由此得证：<code>φ(p*q) = φ(p) * φ(q)</code></p>
+<p>若p为质数，n为任意整数：</p>
+<p>(1) 若p为n的约数，则<code>φ(n*p) = φ(n) * p</code></p>
+<p>若p为n的约数，且p为质数。则我们可以将n表示为<code>p^k*m</code>。m表示其他和p不同的质数的乘积。</p>
+<p>显然有p^k与m互质，则：</p>
+<p><code>φ(n) = φ(p^k)*φ(m) = (p-1)*p^(k-1)*φ(m)</code><br><code>φ(n*p) = φ(p^(k+1))*φ(m) = (p-1)*p^k*φ(m) = (p-1)*p^(k-1)*φ(m) * p =  φ(n) * p</code></p>
+<p>(2) 若p为不为n的约数，则<code>φ(n*p) = φ(n) * (p-1)</code></p>
+<p>由p不为n的约数，因此p与n互质，所以<code>φ(n*p) = φ(n) * φ(p) = φ(n)*(p-1)</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/欧拉函数/">欧拉函数</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/algorithms/">algorithms</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-背包九讲" class="article article-type-post" itemscope itemprop="blogPost">
   

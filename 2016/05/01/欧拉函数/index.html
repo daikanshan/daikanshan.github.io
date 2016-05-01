@@ -4,18 +4,48 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>动态规划之矩阵连乘 | Lisiur&#39;s Blog</title>
+  <title>欧拉函数 | Lisiur&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
+  <meta name="description" content="问题
+假设φ(n)表示1..n-1中与n互质的数的个数。
+求解属于给定区间[L,R]中的值K，
+对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&amp;lt;y。
+
+欧拉函数定义：小于n的正整数中与n互质的数的个数。
+对于φ(n)，我们有这样三个性质：
+
+(1) 若n为素数，则φ(n) = n - 1
+
+显然，由于n为素数，1..n-1与n都只有公因子1，因">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划之矩阵连乘">
-<meta property="og:url" content="http://daikanshan.github.io/2016/04/29/动态规划之矩阵连乘/index.html">
+<meta property="og:title" content="欧拉函数">
+<meta property="og:url" content="http://daikanshan.github.io/2016/05/01/欧拉函数/index.html">
 <meta property="og:site_name" content="Lisiur's Blog">
-<meta property="og:description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
-<meta property="og:updated_time" content="2016-04-30T03:21:39.642Z">
+<meta property="og:description" content="问题
+假设φ(n)表示1..n-1中与n互质的数的个数。
+求解属于给定区间[L,R]中的值K，
+对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&amp;lt;y。
+
+欧拉函数定义：小于n的正整数中与n互质的数的个数。
+对于φ(n)，我们有这样三个性质：
+
+(1) 若n为素数，则φ(n) = n - 1
+
+显然，由于n为素数，1..n-1与n都只有公因子1，因">
+<meta property="og:updated_time" content="2016-05-01T08:47:00.418Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划之矩阵连乘">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
+<meta name="twitter:title" content="欧拉函数">
+<meta name="twitter:description" content="问题
+假设φ(n)表示1..n-1中与n互质的数的个数。
+求解属于给定区间[L,R]中的值K，
+对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&amp;lt;y。
+
+欧拉函数定义：小于n的正整数中与n互质的数的个数。
+对于φ(n)，我们有这样三个性质：
+
+(1) 若n为素数，则φ(n) = n - 1
+
+显然，由于n为素数，1..n-1与n都只有公因子1，因">
   
     <link rel="alternative" href="/atom.xml" title="Lisiur&#39;s Blog" type="application/atom+xml">
   
@@ -187,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-动态规划之矩阵连乘" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-欧拉函数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/29/动态规划之矩阵连乘/" class="article-date">
-  	<time datetime="2016-04-29T15:33:27.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2016/05/01/欧拉函数/" class="article-date">
+  	<time datetime="2016-05-01T08:24:07.000Z" itemprop="datePublished">2016-05-01</time>
 </a>
     </div>
   
@@ -204,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划之矩阵连乘
+      欧拉函数
     </h1>
   
 
@@ -212,7 +242,15 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/欧拉函数/">欧拉函数</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/algorithms/">algorithms</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -220,7 +258,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* p是一系列矩阵的系数</span><br><span class="line">* n是矩阵的个数</span><br><span class="line">* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘</span><br><span class="line">* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MatrixChain</span><span class="params">(<span class="keyword">int</span> *p,<span class="keyword">int</span> n,<span class="keyword">int</span> **m,<span class="keyword">int</span> **s)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    m[i][i] = <span class="number">0</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">2</span>;r&lt;=n;r++) &#123; <span class="comment">//自底向上的动规</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-r+<span class="number">1</span>;i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> j=i+r<span class="number">-1</span>;</span><br><span class="line">      m[i][j] = m[i+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[i]*p[j];</span><br><span class="line">      s[i][j] = i;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=i+<span class="number">1</span>;k&lt;j;k++) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">        <span class="keyword">if</span>(t&lt;m[i][j])&#123;</span><br><span class="line">          m[i][j] = t;</span><br><span class="line">          s[i][j] = k;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
+<p>假设φ(n)表示1..n-1中与n互质的数的个数。</p>
+<p>求解属于给定区间[L,R]中的值K，</p>
+<p>对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&lt;y。</p>
+</blockquote>
+<h1 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h1><p>定义：小于n的正整数中与n互质的数的个数。</p>
+<p>对于φ(n)，我们有这样三个性质：</p>
+<blockquote>
+<p>(1) 若n为素数，则<code>φ(n) = n - 1</code></p>
+</blockquote>
+<p>显然，由于n为素数，1..n-1与n都只有公因子1，因此<code>φ(n) = n - 1</code>。</p>
+<blockquote>
+<p>(2) 若<code>n = p^k</code>，p为素数（即n为单个素数的整数幂），则<code>φ(n) = (p-1)*p^(k-1)</code></p>
+</blockquote>
+<p>因为n是p的整数幂，因此所有p的倍数和n都不互质。小于n的p的倍数一共有<code>p^(k-1)-1</code>个，因此和n互质的个数为：</p>
+<p><code>p^k-1 - (p^(k-1)-1) = p^k - p^(k-1) = (p-1)*p^(k-1)</code></p>
+<blockquote>
+<p>(3) 若p和q互质，则<code>φ(p*q) = φ(p) * φ(q)</code></p>
+</blockquote>
+<p>对于所有小于pq的整数u，可以表示为<code>u=aq+r</code>。(a=0,1,2,…,p-1，r=0,1,…,q-1)。</p>
+<p>对于<code>u = aq + r</code>, 设<code>R = u mod p，0≤R&lt;q</code>。对于一个固定的r，设a1, a2满足<code>0 &lt;= a1, a2 &lt; p且a1≠a2</code>，有：</p>
+<p><code>u1 = a1*q+r, u2 = a2*q+r</code><br><code>u1-u2=(a1-a2)*q</code></p>
+<p>因为p与q互质，且<code>|a1-a2|&lt;p</code>，则|u1-u2|一定不是p的倍数。</p>
+<p>所以对于每一个固定的r，其对应的<code>p个u = a*q+r(a=0,1,2,...,p-1)</code>对<code>mod p</code>来说余数都不相同，即<code>u mod p</code>的结果恰好取遍0,1,…,p-1中的每一个数。</p>
+<p>下面我证明一个引理：<code>u mod p与p互质 &lt;=&gt; u与p互质</code>，其证明如下：</p>
+<p>假设a,b互质,c = a mod b。<br>假设c与b不互质，则存在d≥1，使得c=nd, b=md。<br>由于c = a mod b，因此a = kb + c，<br>则a = kmd + nd = (kn+m)d<br>因此d是a,b的公因数，与a,b互质矛盾。<br>假设不成立，所以c与b互质。</p>
+<p>因此对于任意一个确定的r，与其对应的p个u中恰好有φ(p)个与p互质。</p>
+<p>同理，由u = aq + r知r与q互质 &lt;=&gt; u与q互质。因此在0..q-1中恰好有φ(q)个r使得u与q互质。</p>
+<p>综上，当r与q互质的情况下，固定r可以得到φ(p)个与p和q都互质的数。</p>
+<p>满足条件的r一共用φ(q)个，所以一共能找到有φ(p) * φ(q)个与p和q都互质的数。</p>
+<p>由此得证：<code>φ(p*q) = φ(p) * φ(q)</code></p>
+<p>若p为质数，n为任意整数：</p>
+<p>(1) 若p为n的约数，则<code>φ(n*p) = φ(n) * p</code></p>
+<p>若p为n的约数，且p为质数。则我们可以将n表示为<code>p^k*m</code>。m表示其他和p不同的质数的乘积。</p>
+<p>显然有p^k与m互质，则：</p>
+<p><code>φ(n) = φ(p^k)*φ(m) = (p-1)*p^(k-1)*φ(m)</code><br><code>φ(n*p) = φ(p^(k+1))*φ(m) = (p-1)*p^k*φ(m) = (p-1)*p^(k-1)*φ(m) * p =  φ(n) * p</code></p>
+<p>(2) 若p为不为n的约数，则<code>φ(n*p) = φ(n) * (p-1)</code></p>
+<p>由p不为n的约数，因此p与n互质，所以<code>φ(n*p) = φ(n) * φ(p) = φ(n)*(p-1)</code></p>
+
       
     </div>
     
@@ -229,18 +305,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/30/threejs使用概述/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          threejs使用概述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/29/探索动态规划的本质/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">探索动态规划的本质</div>
+    <a href="/2016/04/30/背包九讲/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">背包九讲</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -275,7 +342,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="动态规划之矩阵连乘" data-title="动态规划之矩阵连乘" data-url="http://daikanshan.github.io/2016/04/29/动态规划之矩阵连乘/"></div>
+	<div class="ds-thread" data-thread-key="欧拉函数" data-title="欧拉函数" data-url="http://daikanshan.github.io/2016/05/01/欧拉函数/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-04-30T12:50:59.254Z</updated>
+  <updated>2016-05-01T08:47:00.418Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>欧拉函数</title>
+    <link href="http://daikanshan.github.io/2016/05/01/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
+    <id>http://daikanshan.github.io/2016/05/01/欧拉函数/</id>
+    <published>2016-05-01T08:24:07.000Z</published>
+    <updated>2016-05-01T08:47:00.418Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;假设φ(n)表示1..n-1中与n互质的数的个数。&lt;/p&gt;
+&lt;p&gt;求解属于给定区间[L,R]中的值K，&lt;/p&gt;
+&lt;p&gt;对于[L,R]中的任意一个除K以外的整数y，满足φ(K)≤φ(y)且φ(K)=φ(y)时，K\&amp;lt;y。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;欧拉函数&quot;&gt;&lt;a href=&quot;#欧拉函数&quot; class=&quot;headerlink&quot; title=&quot;欧拉函数&quot;&gt;&lt;/a&gt;欧拉函数&lt;/h1&gt;&lt;p&gt;定义：小于n的正整数中与n互质的数的个数。&lt;/p&gt;
+&lt;p&gt;对于φ(n)，我们有这样三个性质：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(1) 若n为素数，则&lt;code&gt;φ(n) = n - 1&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;显然，由于n为素数，1..n-1与n都只有公因子1，因此&lt;code&gt;φ(n) = n - 1&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(2) 若&lt;code&gt;n = p^k&lt;/code&gt;，p为素数（即n为单个素数的整数幂），则&lt;code&gt;φ(n) = (p-1)*p^(k-1)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为n是p的整数幂，因此所有p的倍数和n都不互质。小于n的p的倍数一共有&lt;code&gt;p^(k-1)-1&lt;/code&gt;个，因此和n互质的个数为：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;p^k-1 - (p^(k-1)-1) = p^k - p^(k-1) = (p-1)*p^(k-1)&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(3) 若p和q互质，则&lt;code&gt;φ(p*q) = φ(p) * φ(q)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于所有小于pq的整数u，可以表示为&lt;code&gt;u=aq+r&lt;/code&gt;。(a=0,1,2,…,p-1，r=0,1,…,q-1)。&lt;/p&gt;
+&lt;p&gt;对于&lt;code&gt;u = aq + r&lt;/code&gt;, 设&lt;code&gt;R = u mod p，0≤R&amp;lt;q&lt;/code&gt;。对于一个固定的r，设a1, a2满足&lt;code&gt;0 &amp;lt;= a1, a2 &amp;lt; p且a1≠a2&lt;/code&gt;，有：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;u1 = a1*q+r, u2 = a2*q+r&lt;/code&gt;&lt;br&gt;&lt;code&gt;u1-u2=(a1-a2)*q&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;因为p与q互质，且&lt;code&gt;|a1-a2|&amp;lt;p&lt;/code&gt;，则|u1-u2|一定不是p的倍数。&lt;/p&gt;
+&lt;p&gt;所以对于每一个固定的r，其对应的&lt;code&gt;p个u = a*q+r(a=0,1,2,...,p-1)&lt;/code&gt;对&lt;code&gt;mod p&lt;/code&gt;来说余数都不相同，即&lt;code&gt;u mod p&lt;/code&gt;的结果恰好取遍0,1,…,p-1中的每一个数。&lt;/p&gt;
+&lt;p&gt;下面我证明一个引理：&lt;code&gt;u mod p与p互质 &amp;lt;=&amp;gt; u与p互质&lt;/code&gt;，其证明如下：&lt;/p&gt;
+&lt;p&gt;假设a,b互质,c = a mod b。&lt;br&gt;假设c与b不互质，则存在d≥1，使得c=nd, b=md。&lt;br&gt;由于c = a mod b，因此a = kb + c，&lt;br&gt;则a = kmd + nd = (kn+m)d&lt;br&gt;因此d是a,b的公因数，与a,b互质矛盾。&lt;br&gt;假设不成立，所以c与b互质。&lt;/p&gt;
+&lt;p&gt;因此对于任意一个确定的r，与其对应的p个u中恰好有φ(p)个与p互质。&lt;/p&gt;
+&lt;p&gt;同理，由u = aq + r知r与q互质 &amp;lt;=&amp;gt; u与q互质。因此在0..q-1中恰好有φ(q)个r使得u与q互质。&lt;/p&gt;
+&lt;p&gt;综上，当r与q互质的情况下，固定r可以得到φ(p)个与p和q都互质的数。&lt;/p&gt;
+&lt;p&gt;满足条件的r一共用φ(q)个，所以一共能找到有φ(p) * φ(q)个与p和q都互质的数。&lt;/p&gt;
+&lt;p&gt;由此得证：&lt;code&gt;φ(p*q) = φ(p) * φ(q)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;若p为质数，n为任意整数：&lt;/p&gt;
+&lt;p&gt;(1) 若p为n的约数，则&lt;code&gt;φ(n*p) = φ(n) * p&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;若p为n的约数，且p为质数。则我们可以将n表示为&lt;code&gt;p^k*m&lt;/code&gt;。m表示其他和p不同的质数的乘积。&lt;/p&gt;
+&lt;p&gt;显然有p^k与m互质，则：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;φ(n) = φ(p^k)*φ(m) = (p-1)*p^(k-1)*φ(m)&lt;/code&gt;&lt;br&gt;&lt;code&gt;φ(n*p) = φ(p^(k+1))*φ(m) = (p-1)*p^k*φ(m) = (p-1)*p^(k-1)*φ(m) * p =  φ(n) * p&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(2) 若p为不为n的约数，则&lt;code&gt;φ(n*p) = φ(n) * (p-1)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;由p不为n的约数，因此p与n互质，所以&lt;code&gt;φ(n*p) = φ(n) * φ(p) = φ(n)*(p-1)&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;假设φ(n)表示1..n-1中与n互质的数的个数。&lt;/p&gt;
+&lt;p&gt;求解属于给定区间[L,R]中的值K，&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="algorithms" scheme="http://daikanshan.github.io/categories/algorithms/"/>
+    
+    
+      <category term="欧拉函数" scheme="http://daikanshan.github.io/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>背包九讲</title>
