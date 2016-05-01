@@ -32,7 +32,7 @@
 (1) 若n为素数，则φ(n) = n - 1
 
 显然，由于n为素数，1..n-1与n都只有公因子1，因">
-<meta property="og:updated_time" content="2016-05-01T08:47:00.418Z">
+<meta property="og:updated_time" content="2016-05-01T08:49:24.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="欧拉函数">
 <meta name="twitter:description" content="问题
@@ -283,18 +283,24 @@
 <p>因为p与q互质，且<code>|a1-a2|&lt;p</code>，则|u1-u2|一定不是p的倍数。</p>
 <p>所以对于每一个固定的r，其对应的<code>p个u = a*q+r(a=0,1,2,...,p-1)</code>对<code>mod p</code>来说余数都不相同，即<code>u mod p</code>的结果恰好取遍0,1,…,p-1中的每一个数。</p>
 <p>下面我证明一个引理：<code>u mod p与p互质 &lt;=&gt; u与p互质</code>，其证明如下：</p>
+<blockquote>
 <p>假设a,b互质,c = a mod b。<br>假设c与b不互质，则存在d≥1，使得c=nd, b=md。<br>由于c = a mod b，因此a = kb + c，<br>则a = kmd + nd = (kn+m)d<br>因此d是a,b的公因数，与a,b互质矛盾。<br>假设不成立，所以c与b互质。</p>
+</blockquote>
 <p>因此对于任意一个确定的r，与其对应的p个u中恰好有φ(p)个与p互质。</p>
 <p>同理，由u = aq + r知r与q互质 &lt;=&gt; u与q互质。因此在0..q-1中恰好有φ(q)个r使得u与q互质。</p>
 <p>综上，当r与q互质的情况下，固定r可以得到φ(p)个与p和q都互质的数。</p>
 <p>满足条件的r一共用φ(q)个，所以一共能找到有φ(p) * φ(q)个与p和q都互质的数。</p>
 <p>由此得证：<code>φ(p*q) = φ(p) * φ(q)</code></p>
 <p>若p为质数，n为任意整数：</p>
+<blockquote>
 <p>(1) 若p为n的约数，则<code>φ(n*p) = φ(n) * p</code></p>
+</blockquote>
 <p>若p为n的约数，且p为质数。则我们可以将n表示为<code>p^k*m</code>。m表示其他和p不同的质数的乘积。</p>
 <p>显然有p^k与m互质，则：</p>
 <p><code>φ(n) = φ(p^k)*φ(m) = (p-1)*p^(k-1)*φ(m)</code><br><code>φ(n*p) = φ(p^(k+1))*φ(m) = (p-1)*p^k*φ(m) = (p-1)*p^(k-1)*φ(m) * p =  φ(n) * p</code></p>
+<blockquote>
 <p>(2) 若p为不为n的约数，则<code>φ(n*p) = φ(n) * (p-1)</code></p>
+</blockquote>
 <p>由p不为n的约数，因此p与n互质，所以<code>φ(n*p) = φ(n) * φ(p) = φ(n)*(p-1)</code></p>
 
       
