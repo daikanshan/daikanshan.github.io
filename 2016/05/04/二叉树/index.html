@@ -4,18 +4,48 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>动态规划之矩阵连乘 | Lisiur&#39;s Blog</title>
+  <title>二叉树 | Lisiur&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
+  <meta name="description" content="二叉树的定义
+二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树。
+
+特殊的二叉树
+
+满二叉树：一颗深度为h且有2h-1个结点的二叉树。
+完全二叉树： 若设二叉树的高度为h，除第h层外，其他各层的节点数都达到最大个数，第h层从右到左连续缺少若干结点。
+
+
+完全二叉树的特点
+完全二叉树可以使用一维数组存储，如果一个完全二叉树的父结点为k，那么他的左儿子的编号就是2*k">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划之矩阵连乘">
-<meta property="og:url" content="http://daikanshan.github.io/2016/04/29/动态规划之矩阵连乘/index.html">
+<meta property="og:title" content="二叉树">
+<meta property="og:url" content="http://daikanshan.github.io/2016/05/04/二叉树/index.html">
 <meta property="og:site_name" content="Lisiur's Blog">
-<meta property="og:description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
-<meta property="og:updated_time" content="2016-04-30T03:21:39.642Z">
+<meta property="og:description" content="二叉树的定义
+二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树。
+
+特殊的二叉树
+
+满二叉树：一颗深度为h且有2h-1个结点的二叉树。
+完全二叉树： 若设二叉树的高度为h，除第h层外，其他各层的节点数都达到最大个数，第h层从右到左连续缺少若干结点。
+
+
+完全二叉树的特点
+完全二叉树可以使用一维数组存储，如果一个完全二叉树的父结点为k，那么他的左儿子的编号就是2*k">
+<meta property="og:updated_time" content="2016-05-04T08:41:49.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划之矩阵连乘">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627/*** p是一系列矩阵的系数* n是矩阵的个数* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）*/&amp;lt;!-- more --&amp;gt;void MatrixChain(int *p,int n,int **m,int **s)">
+<meta name="twitter:title" content="二叉树">
+<meta name="twitter:description" content="二叉树的定义
+二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树。
+
+特殊的二叉树
+
+满二叉树：一颗深度为h且有2h-1个结点的二叉树。
+完全二叉树： 若设二叉树的高度为h，除第h层外，其他各层的节点数都达到最大个数，第h层从右到左连续缺少若干结点。
+
+
+完全二叉树的特点
+完全二叉树可以使用一维数组存储，如果一个完全二叉树的父结点为k，那么他的左儿子的编号就是2*k">
   
     <link rel="alternative" href="/atom.xml" title="Lisiur&#39;s Blog" type="application/atom+xml">
   
@@ -187,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-动态规划之矩阵连乘" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/29/动态规划之矩阵连乘/" class="article-date">
-  	<time datetime="2016-04-29T15:33:27.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2016/05/04/二叉树/" class="article-date">
+  	<time datetime="2016-05-04T07:51:40.000Z" itemprop="datePublished">2016-05-04</time>
 </a>
     </div>
   
@@ -204,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划之矩阵连乘
+      二叉树
     </h1>
   
 
@@ -212,7 +242,15 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树/">二叉树</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/algorithms/">algorithms</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -220,7 +258,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* p是一系列矩阵的系数</span><br><span class="line">* n是矩阵的个数</span><br><span class="line">* m[x][y]是当前第x个矩阵到第y个矩阵的最优连乘</span><br><span class="line">* s[x][y]是记录当前第x个矩阵到第y个矩阵的最优断开位置（k）</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MatrixChain</span><span class="params">(<span class="keyword">int</span> *p,<span class="keyword">int</span> n,<span class="keyword">int</span> **m,<span class="keyword">int</span> **s)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    m[i][i] = <span class="number">0</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> r=<span class="number">2</span>;r&lt;=n;r++) &#123; <span class="comment">//自底向上的动规</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-r+<span class="number">1</span>;i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> j=i+r<span class="number">-1</span>;</span><br><span class="line">      m[i][j] = m[i+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[i]*p[j];</span><br><span class="line">      s[i][j] = i;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=i+<span class="number">1</span>;k&lt;j;k++) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">        <span class="keyword">if</span>(t&lt;m[i][j])&#123;</span><br><span class="line">          m[i][j] = t;</span><br><span class="line">          s[i][j] = k;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="二叉树的定义"><a href="#二叉树的定义" class="headerlink" title="二叉树的定义"></a>二叉树的定义</h1><blockquote>
+<p>二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树。</p>
+</blockquote>
+<h2 id="特殊的二叉树"><a href="#特殊的二叉树" class="headerlink" title="特殊的二叉树"></a>特殊的二叉树</h2><blockquote>
+<blockquote>
+<p>满二叉树：一颗深度为h且有2<sup>h</sup>-1个结点的二叉树。</p>
+<p>完全二叉树： 若设二叉树的高度为h，除第h层外，其他各层的节点数都达到最大个数，第h层从右到左连续缺少若干结点。</p>
+</blockquote>
+</blockquote>
+<h1 id="完全二叉树的特点"><a href="#完全二叉树的特点" class="headerlink" title="完全二叉树的特点"></a>完全二叉树的特点</h1><blockquote>
+<p>完全二叉树可以使用一维数组存储，<br>如果一个完全二叉树的父结点为k，那么他的左儿子的编号就是2*k，右儿子编号就是2*k+1。<br>如果一个完全二叉树的子结点为k，那么他的父结点的编号为k/2。<br>另外<br>如果一个完全二叉树的节点数为N，那么他的高度为log2N,简写为logN。</p>
+</blockquote>
+<h1 id="完全二叉树的应用"><a href="#完全二叉树的应用" class="headerlink" title="完全二叉树的应用"></a>完全二叉树的应用</h1><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>堆是一种特殊的完全二叉树。<br>若所有的父结点都比子结点要小，则称为最小堆。<br>若所有的父结点都比子结点要大，则称为最大堆。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
       
     </div>
     
@@ -229,18 +286,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/30/threejs使用概述/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          threejs使用概述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/29/探索动态规划的本质/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">探索动态规划的本质</div>
+    <a href="/2016/05/01/欧拉函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">欧拉函数</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -275,7 +323,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="动态规划之矩阵连乘" data-title="动态规划之矩阵连乘" data-url="http://daikanshan.github.io/2016/04/29/动态规划之矩阵连乘/"></div>
+	<div class="ds-thread" data-thread-key="二叉树" data-title="二叉树" data-url="http://daikanshan.github.io/2016/05/04/二叉树/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
