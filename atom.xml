@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-05-04T08:41:49.629Z</updated>
+  <updated>2016-05-04T09:00:51.029Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -20,33 +20,27 @@
     <link href="http://daikanshan.github.io/2016/05/04/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>http://daikanshan.github.io/2016/05/04/二叉树/</id>
     <published>2016-05-04T07:51:40.000Z</published>
-    <updated>2016-05-04T08:41:49.629Z</updated>
+    <updated>2016-05-04T09:00:51.029Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;二叉树的定义&quot;&gt;&lt;a href=&quot;#二叉树的定义&quot; class=&quot;headerlink&quot; title=&quot;二叉树的定义&quot;&gt;&lt;/a&gt;二叉树的定义&lt;/h1&gt;&lt;blockquote&gt;
+    <content type="html">&lt;h1 id=&quot;1-二叉树的定义&quot;&gt;&lt;a href=&quot;#1-二叉树的定义&quot; class=&quot;headerlink&quot; title=&quot;1 二叉树的定义&quot;&gt;&lt;/a&gt;1 二叉树的定义&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;特殊的二叉树&quot;&gt;&lt;a href=&quot;#特殊的二叉树&quot; class=&quot;headerlink&quot; title=&quot;特殊的二叉树&quot;&gt;&lt;/a&gt;特殊的二叉树&lt;/h2&gt;&lt;blockquote&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;1-2-特殊的二叉树&quot;&gt;&lt;a href=&quot;#1-2-特殊的二叉树&quot; class=&quot;headerlink&quot; title=&quot;1.2 特殊的二叉树&quot;&gt;&lt;/a&gt;1.2 特殊的二叉树&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;满二叉树：一颗深度为h且有2&lt;sup&gt;h&lt;/sup&gt;-1个结点的二叉树。&lt;/p&gt;
 &lt;p&gt;完全二叉树： 若设二叉树的高度为h，除第h层外，其他各层的节点数都达到最大个数，第h层从右到左连续缺少若干结点。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;完全二叉树的特点&quot;&gt;&lt;a href=&quot;#完全二叉树的特点&quot; class=&quot;headerlink&quot; title=&quot;完全二叉树的特点&quot;&gt;&lt;/a&gt;完全二叉树的特点&lt;/h1&gt;&lt;blockquote&gt;
+&lt;h1 id=&quot;2-完全二叉树的特点&quot;&gt;&lt;a href=&quot;#2-完全二叉树的特点&quot; class=&quot;headerlink&quot; title=&quot;2 完全二叉树的特点&quot;&gt;&lt;/a&gt;2 完全二叉树的特点&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;完全二叉树可以使用一维数组存储，&lt;br&gt;如果一个完全二叉树的父结点为k，那么他的左儿子的编号就是2*k，右儿子编号就是2*k+1。&lt;br&gt;如果一个完全二叉树的子结点为k，那么他的父结点的编号为k/2。&lt;br&gt;另外&lt;br&gt;如果一个完全二叉树的节点数为N，那么他的高度为log2N,简写为logN。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;完全二叉树的应用&quot;&gt;&lt;a href=&quot;#完全二叉树的应用&quot; class=&quot;headerlink&quot; title=&quot;完全二叉树的应用&quot;&gt;&lt;/a&gt;完全二叉树的应用&lt;/h1&gt;&lt;h2 id=&quot;堆&quot;&gt;&lt;a href=&quot;#堆&quot; class=&quot;headerlink&quot; title=&quot;堆&quot;&gt;&lt;/a&gt;堆&lt;/h2&gt;&lt;h3 id=&quot;堆的定义&quot;&gt;&lt;a href=&quot;#堆的定义&quot; class=&quot;headerlink&quot; title=&quot;堆的定义&quot;&gt;&lt;/a&gt;堆的定义&lt;/h3&gt;&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
+&lt;h1 id=&quot;3-完全二叉树的应用&quot;&gt;&lt;a href=&quot;#3-完全二叉树的应用&quot; class=&quot;headerlink&quot; title=&quot;3 完全二叉树的应用&quot;&gt;&lt;/a&gt;3 完全二叉树的应用&lt;/h1&gt;&lt;h2 id=&quot;3-1-堆&quot;&gt;&lt;a href=&quot;#3-1-堆&quot; class=&quot;headerlink&quot; title=&quot;3.1 堆&quot;&gt;&lt;/a&gt;3.1 堆&lt;/h2&gt;&lt;h3 id=&quot;3-1-1-堆的定义&quot;&gt;&lt;a href=&quot;#3-1-1-堆的定义&quot; class=&quot;headerlink&quot; title=&quot;3.1.1 堆的定义&quot;&gt;&lt;/a&gt;3.1.1 堆的定义&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;堆是一种特殊的完全二叉树。&lt;br&gt;若所有的父结点都比子结点要小，则称为最小堆。&lt;br&gt;若所有的父结点都比子结点要大，则称为最大堆。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
 &lt;/blockquote&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;二叉树的定义&quot;&gt;&lt;a href=&quot;#二叉树的定义&quot; class=&quot;headerlink&quot; title=&quot;二叉树的定义&quot;&gt;&lt;/a&gt;二叉树的定义&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一颗二叉树
+      &lt;h1 id=&quot;1-二叉树的定义&quot;&gt;&lt;a href=&quot;#1-二叉树的定义&quot; class=&quot;headerlink&quot; title=&quot;1 二叉树的定义&quot;&gt;&lt;/a&gt;1 二叉树的定义&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树
     
     </summary>
     
