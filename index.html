@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
+						<a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
 					</div>
 				</section>
 				
@@ -187,6 +187,84 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-玩转shell脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/玩转shell脚本/" class="article-date">
+  	<time datetime="2016-05-05T09:16:36.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/玩转shell脚本/">shell的边边角角</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该文章主要记录shell有趣的玩法。</p>
+</blockquote>
+<h1 id="打印彩色输出"><a href="#打印彩色输出" class="headerlink" title="打印彩色输出"></a>打印彩色输出</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\e[1;31m This is red text \e[0m"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>文字颜色 =&gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37<br>背景颜色 =&gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47<br>将<code>31</code>替换成对应颜色码即可。</p>
+</blockquote>
+<h1 id="检查是否为超级用户"><a href="#检查是否为超级用户" class="headerlink" title="检查是否为超级用户"></a>检查是否为超级用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$UID</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>超级用户返回<code>0</code></p>
+</blockquote>
+<h1 id="文件重定向"><a href="#文件重定向" class="headerlink" title="文件重定向"></a>文件重定向</h1><blockquote>
+<p>文件描述符<br>0 :  stdin<br>1 :  stdout<br>2 :  stderr</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">echo</span> "<span class="selector-tag">This</span> <span class="selector-tag">is</span> <span class="selector-tag">a</span> <span class="selector-tag">sample</span> <span class="selector-tag">text1</span>" &gt; <span class="selector-tag">temp</span><span class="selector-class">.txt</span>        # 清空<span class="selector-tag">temp</span><span class="selector-class">.txt</span> 然后将标准输出重定向到<span class="selector-tag">temp</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">echo</span> "<span class="selector-tag">This</span> <span class="selector-tag">is</span> <span class="selector-tag">another</span> <span class="selector-tag">sample</span> <span class="selector-tag">text2</span>" &gt;&gt; <span class="selector-tag">temp</span><span class="selector-class">.txt</span> # 将标准输出追加到<span class="selector-tag">temp</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">ls</span> + 2&gt; <span class="selector-tag">out</span><span class="selector-class">.txt</span>                                 # 将错误信息重定向到<span class="selector-tag">out</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> 2&gt;<span class="selector-tag">stderr</span><span class="selector-class">.txt</span> 1&gt;<span class="selector-tag">stdout</span><span class="selector-class">.txt</span>                   # 将错误信息重定向到<span class="selector-tag">stderr</span><span class="selector-class">.txt</span>,标准输出重定向到<span class="selector-tag">stdout</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> 2&gt;&amp;1 <span class="selector-tag">output</span><span class="selector-class">.txt</span>                             # 将标准输出和错误重定向到<span class="selector-tag">output</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> &amp;&gt; <span class="selector-tag">output</span><span class="selector-class">.txt</span>                               # 同上</span><br></pre></td></tr></table></figure>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/www/<span class="keyword">index</span>.html <span class="number">2</span>&gt;/dev/<span class="keyword">null</span>              <span class="meta"># 将标准错误删除</span></span><br></pre></td></tr></table></figure>
+<h1 id="录制并回放终端会话"><a href="#录制并回放终端会话" class="headerlink" title="录制并回放终端会话"></a>录制并回放终端会话</h1><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">script <span class="attr">-t</span> <span class="number">2</span>&gt; timing.<span class="keyword">log</span> <span class="attr">-a</span> output.session</span><br><span class="line"><span class="keyword">type</span> commands;</span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">scriptreplay timing.<span class="keyword">log</span> output.session</span><br></pre></td></tr></table></figure>
+<p># </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   

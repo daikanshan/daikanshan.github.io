@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>shell的边边角角 | Lisiur&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="该文章主要记录shell有趣的玩法。
+
+打印彩色输出1echo -e &quot;\e[1;31m This is red text \e[0m&quot;
+
+文字颜色 =&amp;gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37背景颜色 =&amp;gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47将31">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell的边边角角">
+<meta property="og:url" content="http://daikanshan.github.io/2016/05/05/玩转shell脚本/index.html">
+<meta property="og:site_name" content="Lisiur's Blog">
+<meta property="og:description" content="该文章主要记录shell有趣的玩法。
+
+打印彩色输出1echo -e &quot;\e[1;31m This is red text \e[0m&quot;
+
+文字颜色 =&amp;gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37背景颜色 =&amp;gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47将31">
+<meta property="og:updated_time" content="2016-05-05T12:18:10.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell的边边角角">
+<meta name="twitter:description" content="该文章主要记录shell有趣的玩法。
+
+打印彩色输出1echo -e &quot;\e[1;31m This is red text \e[0m&quot;
+
+文字颜色 =&amp;gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37背景颜色 =&amp;gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47将31">
+  
+    <link rel="alternative" href="/atom.xml" title="Lisiur&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/author.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lisiur</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/tags/essay">essay</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/daikanshan" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5772889913" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://lisiur.com/">Lisiur&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Hello, I&#39;m Lisiur</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Lisiur</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/author.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lisiur</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/tags/essay">essay</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/daikanshan" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5772889913" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-玩转shell脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/玩转shell脚本/" class="article-date">
+  	<time datetime="2016-05-05T09:16:36.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      shell的边边角角
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该文章主要记录shell有趣的玩法。</p>
+</blockquote>
+<h1 id="打印彩色输出"><a href="#打印彩色输出" class="headerlink" title="打印彩色输出"></a>打印彩色输出</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\e[1;31m This is red text \e[0m"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>文字颜色 =&gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37<br>背景颜色 =&gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47<br>将<code>31</code>替换成对应颜色码即可。</p>
+</blockquote>
+<h1 id="检查是否为超级用户"><a href="#检查是否为超级用户" class="headerlink" title="检查是否为超级用户"></a>检查是否为超级用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$UID</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>超级用户返回<code>0</code></p>
+</blockquote>
+<h1 id="文件重定向"><a href="#文件重定向" class="headerlink" title="文件重定向"></a>文件重定向</h1><blockquote>
+<p>文件描述符<br>0 :  stdin<br>1 :  stdout<br>2 :  stderr</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">echo</span> "<span class="selector-tag">This</span> <span class="selector-tag">is</span> <span class="selector-tag">a</span> <span class="selector-tag">sample</span> <span class="selector-tag">text1</span>" &gt; <span class="selector-tag">temp</span><span class="selector-class">.txt</span>        # 清空<span class="selector-tag">temp</span><span class="selector-class">.txt</span> 然后将标准输出重定向到<span class="selector-tag">temp</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">echo</span> "<span class="selector-tag">This</span> <span class="selector-tag">is</span> <span class="selector-tag">another</span> <span class="selector-tag">sample</span> <span class="selector-tag">text2</span>" &gt;&gt; <span class="selector-tag">temp</span><span class="selector-class">.txt</span> # 将标准输出追加到<span class="selector-tag">temp</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">ls</span> + 2&gt; <span class="selector-tag">out</span><span class="selector-class">.txt</span>                                 # 将错误信息重定向到<span class="selector-tag">out</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> 2&gt;<span class="selector-tag">stderr</span><span class="selector-class">.txt</span> 1&gt;<span class="selector-tag">stdout</span><span class="selector-class">.txt</span>                   # 将错误信息重定向到<span class="selector-tag">stderr</span><span class="selector-class">.txt</span>,标准输出重定向到<span class="selector-tag">stdout</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> 2&gt;&amp;1 <span class="selector-tag">output</span><span class="selector-class">.txt</span>                             # 将标准输出和错误重定向到<span class="selector-tag">output</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">cmd</span> &amp;&gt; <span class="selector-tag">output</span><span class="selector-class">.txt</span>                               # 同上</span><br></pre></td></tr></table></figure>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/www/<span class="keyword">index</span>.html <span class="number">2</span>&gt;/dev/<span class="keyword">null</span>              <span class="meta"># 将标准错误删除</span></span><br></pre></td></tr></table></figure>
+<h1 id="录制并回放终端会话"><a href="#录制并回放终端会话" class="headerlink" title="录制并回放终端会话"></a>录制并回放终端会话</h1><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">script <span class="attr">-t</span> <span class="number">2</span>&gt; timing.<span class="keyword">log</span> <span class="attr">-a</span> output.session</span><br><span class="line"><span class="keyword">type</span> commands;</span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">scriptreplay timing.<span class="keyword">log</span> output.session</span><br></pre></td></tr></table></figure>
+<p># </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/04/二叉树/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二叉树</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="玩转shell脚本" data-title="shell的边边角角" data-url="http://daikanshan.github.io/2016/05/05/玩转shell脚本/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lisiurblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lisiur
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-05-04T09:00:51.029Z</updated>
+  <updated>2016-05-05T12:18:10.143Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell的边边角角</title>
+    <link href="http://daikanshan.github.io/2016/05/05/%E7%8E%A9%E8%BD%ACshell%E8%84%9A%E6%9C%AC/"/>
+    <id>http://daikanshan.github.io/2016/05/05/玩转shell脚本/</id>
+    <published>2016-05-05T09:16:36.000Z</published>
+    <updated>2016-05-05T12:18:10.143Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;该文章主要记录shell有趣的玩法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;打印彩色输出&quot;&gt;&lt;a href=&quot;#打印彩色输出&quot; class=&quot;headerlink&quot; title=&quot;打印彩色输出&quot;&gt;&lt;/a&gt;打印彩色输出&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;\e[1;31m This is red text \e[0m&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;文字颜色 =&amp;gt; 重置：0，黑色：30，红色：31，绿色：32，黄色：33，蓝色：34，洋红：35，青色：36，白色：37&lt;br&gt;背景颜色 =&amp;gt; 重置：0，黑色：40，红色：41，绿色：42，黄色：43，蓝色：44，洋红：45，青色：46，白色：47&lt;br&gt;将&lt;code&gt;31&lt;/code&gt;替换成对应颜色码即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;检查是否为超级用户&quot;&gt;&lt;a href=&quot;#检查是否为超级用户&quot; class=&quot;headerlink&quot; title=&quot;检查是否为超级用户&quot;&gt;&lt;/a&gt;检查是否为超级用户&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$UID&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;超级用户返回&lt;code&gt;0&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;文件重定向&quot;&gt;&lt;a href=&quot;#文件重定向&quot; class=&quot;headerlink&quot; title=&quot;文件重定向&quot;&gt;&lt;/a&gt;文件重定向&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;文件描述符&lt;br&gt;0 :  stdin&lt;br&gt;1 :  stdout&lt;br&gt;2 :  stderr&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;echo&lt;/span&gt; &quot;&lt;span class=&quot;selector-tag&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;text1&lt;/span&gt;&quot; &amp;gt; &lt;span class=&quot;selector-tag&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;        # 清空&lt;span class=&quot;selector-tag&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt; 然后将标准输出重定向到&lt;span class=&quot;selector-tag&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;echo&lt;/span&gt; &quot;&lt;span class=&quot;selector-tag&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;another&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;text2&lt;/span&gt;&quot; &amp;gt;&amp;gt; &lt;span class=&quot;selector-tag&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt; # 将标准输出追加到&lt;span class=&quot;selector-tag&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;ls&lt;/span&gt; + 2&amp;gt; &lt;span class=&quot;selector-tag&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;                                 # 将错误信息重定向到&lt;span class=&quot;selector-tag&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;cmd&lt;/span&gt; 2&amp;gt;&lt;span class=&quot;selector-tag&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt; 1&amp;gt;&lt;span class=&quot;selector-tag&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;                   # 将错误信息重定向到&lt;span class=&quot;selector-tag&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;,标准输出重定向到&lt;span class=&quot;selector-tag&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;cmd&lt;/span&gt; 2&amp;gt;&amp;amp;1 &lt;span class=&quot;selector-tag&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;                             # 将标准输出和错误重定向到&lt;span class=&quot;selector-tag&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;cmd&lt;/span&gt; &amp;amp;&amp;gt; &lt;span class=&quot;selector-tag&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.txt&lt;/span&gt;                               # 同上&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight axapta&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rm /var/www/&lt;span class=&quot;keyword&quot;&gt;index&lt;/span&gt;.html &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;gt;/dev/&lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;              &lt;span class=&quot;meta&quot;&gt;# 将标准错误删除&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;录制并回放终端会话&quot;&gt;&lt;a href=&quot;#录制并回放终端会话&quot; class=&quot;headerlink&quot; title=&quot;录制并回放终端会话&quot;&gt;&lt;/a&gt;录制并回放终端会话&lt;/h1&gt;&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;script &lt;span class=&quot;attr&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;gt; timing.&lt;span class=&quot;keyword&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;-a&lt;/span&gt; output.session&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; commands;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;exit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scriptreplay timing.&lt;span class=&quot;keyword&quot;&gt;log&lt;/span&gt; output.session&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;# &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;该文章主要记录shell有趣的玩法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;打印彩色输出&quot;&gt;&lt;a href=&quot;#打印彩色输出&quot; class=&quot;headerlink&quot; title=&quot;打印彩色输出&quot;&gt;&lt;/a&gt;打印彩色输出&lt;/h1&gt;&lt;fig
+    
+    </summary>
+    
+      <category term="linux" scheme="http://daikanshan.github.io/categories/linux/"/>
+    
+    
+      <category term="shell" scheme="http://daikanshan.github.io/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>二叉树</title>
