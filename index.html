@@ -270,7 +270,7 @@
 <p>printf可以使用格式化字符串，默认情况下printf不会像echo一样自动添加换行符。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#filename: printf.sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4s\n"</span> No Name Mark</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 1 Sarath 80.3456</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 2 James 90.9989</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 3 Jeff 77.564</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>No　 Name　　　Mark<br>1　　Sarath　　80.35<br>2　　James　　 91.00<br>3　　Jeff　　 　77.56</p>
+<p>No　 Name　　Mark<br>1　　Sarath　　80.35<br>2　　James　　 91.00<br>3　　Jeff　　 　77.56</p>
 <p>%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用<code>-</code>指定对其方式，字符串就会采用右对齐形式。</p>
 </blockquote>
 

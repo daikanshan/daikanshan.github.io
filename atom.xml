@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-05-08T15:54:04.703Z</updated>
+  <updated>2016-05-08T15:55:20.511Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://daikanshan.github.io/2016/05/08/LinuxShell-%E5%88%9D%E8%AF%86/"/>
     <id>http://daikanshan.github.io/2016/05/08/LinuxShell-初识/</id>
     <published>2016-05-08T14:42:39.000Z</published>
-    <updated>2016-05-08T15:54:04.703Z</updated>
+    <updated>2016-05-08T15:55:20.511Z</updated>
     
     <content type="html">&lt;h1 id=&quot;shell脚本&quot;&gt;&lt;a href=&quot;#shell脚本&quot; class=&quot;headerlink&quot; title=&quot;shell脚本&quot;&gt;&lt;/a&gt;shell脚本&lt;/h1&gt;&lt;p&gt;shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。&lt;/p&gt;
 &lt;h2 id=&quot;shell脚本的执行&quot;&gt;&lt;a href=&quot;#shell脚本的执行&quot; class=&quot;headerlink&quot; title=&quot;shell脚本的执行&quot;&gt;&lt;/a&gt;shell脚本的执行&lt;/h2&gt;&lt;p&gt;shell脚本通常是一个以shebang起始的文本文件：&lt;/p&gt;
@@ -78,7 +78,7 @@
 &lt;p&gt;printf可以使用格式化字符串，默认情况下printf不会像echo一样自动添加换行符。&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#filename: printf.sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;%-5s %-10s %-4s\n&quot;&lt;/span&gt; No Name Mark&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;%-5s %-10s %-4.2s\n&quot;&lt;/span&gt; 1 Sarath 80.3456&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;%-5s %-10s %-4.2s\n&quot;&lt;/span&gt; 2 James 90.9989&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;%-5s %-10s %-4.2s\n&quot;&lt;/span&gt; 3 Jeff 77.564&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
-&lt;p&gt;No　 Name　　　Mark&lt;br&gt;1　　Sarath　　80.35&lt;br&gt;2　　James　　 91.00&lt;br&gt;3　　Jeff　　 　77.56&lt;/p&gt;
+&lt;p&gt;No　 Name　　Mark&lt;br&gt;1　　Sarath　　80.35&lt;br&gt;2　　James　　 91.00&lt;br&gt;3　　Jeff　　 　77.56&lt;/p&gt;
 &lt;p&gt;%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用&lt;code&gt;-&lt;/code&gt;指定对其方式，字符串就会采用右对齐形式。&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
