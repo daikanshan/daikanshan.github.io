@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
+						<a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/shell-echo/" style="font-size: 10px;">shell,echo</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
 					</div>
 				</section>
 				
@@ -188,6 +188,126 @@
 
       <div class="body-wrap">
   
+    <article id="post-LinuxShell-初识" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/08/LinuxShell-初识/" class="article-date">
+  	<time datetime="2016-05-08T14:42:39.000Z" itemprop="datePublished">2016-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/08/LinuxShell-初识/">LinuxShell-初识</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><p>shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。</p>
+<h2 id="shell脚本的执行"><a href="#shell脚本的执行" class="headerlink" title="shell脚本的执行"></a>shell脚本的执行</h2><p>shell脚本通常是一个以shebang起始的文本文件：</p>
+<p><code>#!/bin/bash</code></p>
+<p>代表该脚本将由<code>/bin/bash</code>解析执行</p>
+<p>有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。</p>
+<p>将脚本作为命令行运行方式如下：</p>
+<p><code>$ bash script.sh</code></p>
+<p>如果将脚本作为命令行参数使用则可以不使用shebang。</p>
+<p>将脚本作为可执行文件来执行，需要现将其赋予执行权限：</p>
+<p><code>$ chmod a+x script.sh</code></p>
+<p>然后便可像下面这样执行：</p>
+<p><code>$ ./script.sh</code></p>
+<blockquote>
+<p>内核会读取脚本的首行并注意到shebang为<code>#!/bin/bash</code> 。它识别出/bin/bash并在内部像这样执行该脚本：</p>
+</blockquote>
+<p><code>$ /bin/bash script.sh</code></p>
+<h1 id="终端打印"><a href="#终端打印" class="headerlink" title="终端打印"></a>终端打印</h1><p>终端是交互式工具，用户可以通过它与shell环境进行交互。</p>
+<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>在默认情况下，echo在每次调用后会添加一个换行符。</p>
+<p><code>$ echo &quot;Welcome to Bash&quot;</code></p>
+<blockquote>
+<p><code>Welcome to Bash</code></p>
+</blockquote>
+<p>使用<code>-n</code>参数可以忽略默认的换行。</p>
+<p><code>$ echo -n &#39;Welcome to Bash&#39;</code></p>
+<blockquote>
+<p><code>Welcome to Bash%</code></p>
+</blockquote>
+<p>不带双引号也可以打印出相同的结果：</p>
+<p><code>$ echo Welcome to Bash</code></p>
+<blockquote>
+<p><code>Welcome to Bash</code></p>
+</blockquote>
+<p>使用单引号也可以完成相同的任务，但与双引号略有不同。</p>
+<p>单引号是强引用，双引号是弱引用。</p>
+<p>单引号里的所有内容会被全部照样输出，双引号会先进行必要的转义之后才会输出。</p>
+<p>比如：</p>
+<p><code>$ echo &#39;Welcome\nto\nBash&#39;</code></p>
+<blockquote>
+<p><code>Welcome\nto\nBash</code></p>
+</blockquote>
+<p><code>$ echo &quot;Welcome\nto\nBash&quot;</code></p>
+<blockquote>
+<p><code>Welcom</code><br><code>to</code><br><code>Bash</code></p>
+</blockquote>
+<p>可以使用<code>-e</code>参数强制转义输出：</p>
+<p><code>$ echo -e &#39;Welcome\nto\nBash&#39;</code></p>
+<blockquote>
+<p><code>Welcom</code><br><code>to</code><br><code>Bash</code></p>
+</blockquote>
+<h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>printf使用的参数和C语言中的printf函数一样。</p>
+<p><code>$ printf &quot;Hello World&quot;</code></p>
+<blockquote>
+<p><code>Hello World</code></p>
+</blockquote>
+<p>printf可以使用格式化字符串，默认情况下printf不会像echo一样自动添加换行符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#filename: printf.sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4s\n"</span> No Name Mark</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 1 Sarath 80.3456</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 2 James 90.9989</span><br><span class="line"><span class="built_in">printf</span> <span class="string">"%-5s %-10s %-4.2s\n"</span> 3 Jeff 77.564</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>No   Name      Mark</code><br><code>1    Sarath    80.35</code><br><code>2    James     91.00</code><br><code>3    Jeff      77.56</code></p>
+<p>%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用<code>-</code>指定对其方式，字符串就会采用右对齐形式。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell-echo/">shell,echo</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-玩转shell脚本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -234,7 +354,8 @@
 </blockquote>
 <figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /var/www/<span class="keyword">index</span>.html <span class="number">2</span>&gt;/dev/<span class="keyword">null</span>              <span class="meta"># 将标准错误删除</span></span><br></pre></td></tr></table></figure>
 <h1 id="录制并回放终端会话"><a href="#录制并回放终端会话" class="headerlink" title="录制并回放终端会话"></a>录制并回放终端会话</h1><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">script <span class="attr">-t</span> <span class="number">2</span>&gt; timing.<span class="keyword">log</span> <span class="attr">-a</span> output.session</span><br><span class="line"><span class="keyword">type</span> commands;</span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">scriptreplay timing.<span class="keyword">log</span> output.session</span><br></pre></td></tr></table></figure>
-<p># </p>
+<h1 id="反序输出"><a href="#反序输出" class="headerlink" title="反序输出"></a>反序输出</h1><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tac <span class="string">[filename]</span></span><br></pre></td></tr></table></figure>
+<h1 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h1><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f <span class="string">[file]</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
