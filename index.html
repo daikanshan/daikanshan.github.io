@@ -281,19 +281,15 @@
 <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>赋值</p>
 <p><code>var=&#39;value&#39;</code> # 不能写成<code>var = &#39;value&#39;</code></p>
 <p>引用变量：</p>
-<p><code>echo $var</code> or <code>echo ${var}</code></p>
-<p>可以在双引号中引用变量：</p>
-<p><code>echo &quot;$var&quot;</code></p>
+<figure class="highlight plain"><figcaption><span>$var` or `echo $&#123;var&#125;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可以在双引号中引用变量：</span><br><span class="line"></span><br><span class="line">```echo &quot;$var&quot;</span><br></pre></td></tr></table></figure>
 <p>设置环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=192.168.1.23.3128</span><br><span class="line">expot HTTP_PROXY</span><br></pre></td></tr></table></figure>
 <p>在PATH中添加路径：</p>
-<p><code>export PATH=&quot;$PATH:/home/usr/bin&quot;</code></p>
-<p>获取字符长度：</p>
-<p><code>echo ${\#var}</code></p>
+<figure class="highlight plain"><figcaption><span>PATH="$PATH:/home/usr/bin"```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">获取字符长度：</span><br><span class="line"></span><br><span class="line">```echo $&#123;\#var&#125;</span><br></pre></td></tr></table></figure>
 <p>获取当前shell：</p>
-<p><code>echo $SHELL</code> or <code>echo $0</code></p>
+<figure class="highlight plain"><figcaption><span>$SHELL``` or ```echo $0```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 在.bashrc中添加下面函数：</span><br><span class="line"></span><br><span class="line">```prepend() &#123; [ -d &quot;$2&quot; ] &amp;&amp; eval $1=\&quot;$2\$\&#123;$1:+&apos;:&apos;\$$1\&#125;\&quot; &amp;&amp; export $1;  &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>在.bashrc中添加下面函数：<br>prepend() { [ -d “$2” ] &amp;&amp; eval $1=\”$2\${$1:+’:’\$$1}\” &amp;&amp; export $1;  }<br>则可以直接这样添加路径：<br><code>prepend PATH /home/usr/bin</code></p>
+<p>则可以直接这样添加路径：<br><code>prepend PATH /home/usr/bin</code></p>
 </blockquote>
 
       
