@@ -24,7 +24,7 @@ shell脚本的执行shell脚本通常是一个以shebang起始的文本文件：
 有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。
 将脚本作为命令行运行方式如下：
 $ bash">
-<meta property="og:updated_time" content="2016-05-08T15:55:20.511Z">
+<meta property="og:updated_time" content="2016-05-10T05:19:58.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinuxShell-初识">
 <meta name="twitter:description" content="shell脚本shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。
@@ -133,7 +133,7 @@ $ bash">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/echo/" style="font-size: 10px;">echo</a> <a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
+						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/欧拉函数/" style="font-size: 10px;">欧拉函数</a> <a href="/tags/背包/" style="font-size: 10px;">背包</a>
 					</div>
 				</section>
 				
@@ -231,7 +231,7 @@ $ bash">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echo/">echo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 	</div>
 
         
@@ -305,6 +305,28 @@ $ bash">
 <p>No　 Name　　Mark<br>1　　Sarath　　80.35<br>2　　James　　 91.00<br>3　　Jeff　　 　77.56</p>
 <p>%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用<code>-</code>指定对其方式，字符串就会采用右对齐形式。</p>
 </blockquote>
+<h1 id="变量、环境变量"><a href="#变量、环境变量" class="headerlink" title="变量、环境变量"></a>变量、环境变量</h1><p>查看进程相关变量：</p>
+<p><code>cat /proc/$PID/environ</code></p>
+<blockquote>
+<p><code>grep vim # 获取vim进程的ID</code><br><code>cat /proc/$PID/environ | tr &#39;\0&#39; &#39;\n&#39; # 优化输出</code> </p>
+</blockquote>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>赋值</p>
+<p><code>var=&#39;value&#39;</code> # 不能写成<code>var = &#39;value&#39;</code></p>
+<p>引用变量：</p>
+<p><code>echo $var</code> or <code>echo ${var}</code></p>
+<p>可以在双引号中引用变量：</p>
+<p><code>echo &quot;$var&quot;</code></p>
+<p>设置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=192.168.1.23.3128</span><br><span class="line">expot HTTP_PROXY</span><br></pre></td></tr></table></figure>
+<p>在PATH中添加路径：</p>
+<p><code>export PATH=&quot;$PATH:/home/usr/bin&quot;</code></p>
+<p>获取字符长度：</p>
+<p><code>echo ${\#var}</code></p>
+<p>获取当前shell：</p>
+<p><code>echo $SHELL</code> or <code>echo $0</code></p>
+<blockquote>
+<p>在.bashrc中添加下面函数：<br>prepend() { [ -d “$2” ] &amp;&amp; eval $1=\”$2\${$1:+’:’\$$1}\” &amp;&amp; export $1;  }<br>则可以直接这样添加路径：<br><code>prepend PATH /home/usr/bin</code></p>
+</blockquote>
 
       
     </div>
@@ -347,26 +369,6 @@ $ bash">
 
 
 
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="LinuxShell-初识" data-title="LinuxShell-初识" data-url="http://daikanshan.github.io/2016/05/08/LinuxShell-初识/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"lisiurblog"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
 
 
 
