@@ -8,32 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="shell脚本shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。
 shell脚本的执行shell脚本通常是一个以shebang起始的文本文件：
-#!/bin/bash
+1#!/bin/bash
 代表该脚本将由/bin/bash解析执行
 有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。
 将脚本作为命令行运行方式如下：
-$ bash">
+1$ ba">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LinuxShell-初识">
 <meta property="og:url" content="http://daikanshan.github.io/2016/05/08/LinuxShell-初识/index.html">
 <meta property="og:site_name" content="Lisiur's Blog">
 <meta property="og:description" content="shell脚本shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。
 shell脚本的执行shell脚本通常是一个以shebang起始的文本文件：
-#!/bin/bash
+1#!/bin/bash
 代表该脚本将由/bin/bash解析执行
 有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。
 将脚本作为命令行运行方式如下：
-$ bash">
-<meta property="og:updated_time" content="2016-05-10T05:22:23.959Z">
+1$ ba">
+<meta property="og:updated_time" content="2016-05-10T05:25:56.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinuxShell-初识">
 <meta name="twitter:description" content="shell脚本shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。
 shell脚本的执行shell脚本通常是一个以shebang起始的文本文件：
-#!/bin/bash
+1#!/bin/bash
 代表该脚本将由/bin/bash解析执行
 有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。
 将脚本作为命令行运行方式如下：
-$ bash">
+1$ ba">
   
     <link rel="alternative" href="/atom.xml" title="Lisiur&#39;s Blog" type="application/atom+xml">
   
@@ -248,32 +248,32 @@ $ bash">
       
         <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><p>shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。</p>
 <h2 id="shell脚本的执行"><a href="#shell脚本的执行" class="headerlink" title="shell脚本的执行"></a>shell脚本的执行</h2><p>shell脚本通常是一个以shebang起始的文本文件：</p>
-<p><code>#!/bin/bash</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br></pre></td></tr></table></figure>
 <p>代表该脚本将由<code>/bin/bash</code>解析执行</p>
 <p>有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。</p>
 <p>将脚本作为命令行运行方式如下：</p>
-<p><code>$ bash script.sh</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash <span class="keyword">script</span>.sh</span><br></pre></td></tr></table></figure>
 <p>如果将脚本作为命令行参数使用则可以不使用shebang。</p>
 <p>将脚本作为可执行文件来执行，需要现将其赋予执行权限：</p>
-<p><code>$ chmod a+x script.sh</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod a+x <span class="keyword">script</span>.sh</span><br></pre></td></tr></table></figure>
 <p>然后便可像下面这样执行：</p>
-<p><code>$ ./script.sh</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./<span class="keyword">script</span>.sh</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>内核会读取脚本的首行并注意到shebang为<code>#!/bin/bash</code> 。它识别出/bin/bash并在内部像这样执行该脚本：<br>$ /bin/bash script.sh</p>
 </blockquote>
 <h1 id="终端打印"><a href="#终端打印" class="headerlink" title="终端打印"></a>终端打印</h1><p>终端是交互式工具，用户可以通过它与shell环境进行交互。</p>
 <h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>在默认情况下，echo在每次调用后会添加一个换行符。</p>
-<p><code>$ echo &quot;Welcome to Bash&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"Welcome to Bash"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcome to Bash</p>
 </blockquote>
 <p>使用<code>-n</code>参数可以忽略默认的换行。</p>
-<p><code>$ echo -n &#39;Welcome to Bash&#39;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> -n <span class="string">'Welcome to Bash'</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcome to Bash%</p>
 </blockquote>
 <p>不带双引号也可以打印出相同的结果：</p>
-<p><code>$ echo Welcome to Bash</code></p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> Welcome <span class="keyword">to</span> Bash</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcome to Bash</p>
 </blockquote>
@@ -281,21 +281,21 @@ $ bash">
 <p>单引号是强引用，双引号是弱引用。</p>
 <p>单引号里的所有内容会被全部照样输出，双引号会先进行必要的转义之后才会输出。</p>
 <p>比如：</p>
-<p><code>$ echo &#39;Welcome\nto\nBash&#39;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'Welcome\nto\nBash'</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcome\nto\nBash</p>
 </blockquote>
-<p><code>$ echo &quot;Welcome\nto\nBash&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"Welcome\nto\nBash"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcom<br>to<br>Bash</p>
 </blockquote>
 <p>可以使用<code>-e</code>参数强制转义输出：</p>
-<p><code>$ echo -e &#39;Welcome\nto\nBash&#39;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="_">-e</span> <span class="string">'Welcome\nto\nBash'</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Welcom<br>to<br>Bash</p>
 </blockquote>
 <h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p>printf使用的参数和C语言中的printf函数一样。</p>
-<p><code>$ printf &quot;Hello World&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">printf</span> <span class="string">"Hello World"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Hello World</p>
 </blockquote>
@@ -306,20 +306,24 @@ $ bash">
 <p>%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用<code>-</code>指定对其方式，字符串就会采用右对齐形式。</p>
 </blockquote>
 <h1 id="变量、环境变量"><a href="#变量、环境变量" class="headerlink" title="变量、环境变量"></a>变量、环境变量</h1><p>查看进程相关变量：</p>
-<p><code>cat /proc/$PID/environ</code></p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /<span class="keyword">proc</span>/$PID/environ</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>grep vim # 获取vim进程的ID</code><br><code>cat /proc/$PID/environ | tr &#39;\0&#39; &#39;\n&#39; # 优化输出</code> </p>
 </blockquote>
 <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>赋值</p>
-<p><code>var=&#39;value&#39;</code> # 不能写成<code>var = &#39;value&#39;</code></p>
-<p>引用变量：</p>
-<figure class="highlight plain"><figcaption><span>$var` or `echo $&#123;var&#125;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可以在双引号中引用变量：</span><br><span class="line"></span><br><span class="line">```echo &quot;$var&quot;</span><br></pre></td></tr></table></figure>
-<p>设置环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTP_PROXY=192.168.1.23.3128</span><br><span class="line">expot HTTP_PROXY</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>=<span class="string">'value'</span></span><br><span class="line"><span class="meta"># 不能写成</span></span><br><span class="line"><span class="keyword">var</span> = <span class="string">'value'</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">引用变量：</span><br></pre></td></tr></table></figure>
+<p>echo $var<br>echo ${var}<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可以在双引号中引用变量：</span><br></pre></td></tr></table></figure></p>
+<p>echo “$var”<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">设置环境变量</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"> HTTP_PROXY=<span class="number">192.168</span>.<span class="number">1.23</span>.<span class="number">3128</span></span><br><span class="line"> expot HTTP_PROXY</span><br></pre></td></tr></table></figure></p>
 <p>在PATH中添加路径：</p>
-<figure class="highlight plain"><figcaption><span>PATH="$PATH:/home/usr/bin"```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">获取字符长度：</span><br><span class="line"></span><br><span class="line">```echo $&#123;\#var&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/home/usr/bin"</span></span><br></pre></td></tr></table></figure>
+<p>获取字符长度：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;\#var&#125;</span></span><br></pre></td></tr></table></figure>
 <p>获取当前shell：</p>
-<figure class="highlight plain"><figcaption><span>$SHELL``` or ```echo $0```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 在.bashrc中添加下面函数：</span><br><span class="line"></span><br><span class="line">```prepend() &#123; [ -d &quot;$2&quot; ] &amp;&amp; eval $1=\&quot;$2\$\&#123;$1:+&apos;:&apos;\$$1\&#125;\&quot; &amp;&amp; export $1;  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在.bashrc中添加下面函数：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">prepend</span></span>() &#123; [ <span class="_">-d</span> <span class="string">"<span class="variable">$2</span>"</span> ] &amp;&amp; <span class="built_in">eval</span> <span class="variable">$1</span>=\<span class="string">"<span class="variable">$2</span>\$\&#123;<span class="variable">$1</span>:+':'\$<span class="variable">$1</span>\&#125;\" &amp;&amp; export <span class="variable">$1</span>;  &#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>则可以直接这样添加路径：<br><code>prepend PATH /home/usr/bin</code></p>
 </blockquote>

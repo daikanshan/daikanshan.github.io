@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://daikanshan.github.io/"/>
-  <updated>2016-05-10T05:22:23.959Z</updated>
+  <updated>2016-05-10T05:25:56.159Z</updated>
   <id>http://daikanshan.github.io/</id>
   
   <author>
@@ -20,36 +20,36 @@
     <link href="http://daikanshan.github.io/2016/05/08/LinuxShell-%E5%88%9D%E8%AF%86/"/>
     <id>http://daikanshan.github.io/2016/05/08/LinuxShell-初识/</id>
     <published>2016-05-08T14:42:39.000Z</published>
-    <updated>2016-05-10T05:22:23.959Z</updated>
+    <updated>2016-05-10T05:25:56.159Z</updated>
     
     <content type="html">&lt;h1 id=&quot;shell脚本&quot;&gt;&lt;a href=&quot;#shell脚本&quot; class=&quot;headerlink&quot; title=&quot;shell脚本&quot;&gt;&lt;/a&gt;shell脚本&lt;/h1&gt;&lt;p&gt;shell脚本就是一些文件，我们能将一系列需要执行的命令写入其中，然后通过shell执行。&lt;/p&gt;
 &lt;h2 id=&quot;shell脚本的执行&quot;&gt;&lt;a href=&quot;#shell脚本的执行&quot; class=&quot;headerlink&quot; title=&quot;shell脚本的执行&quot;&gt;&lt;/a&gt;shell脚本的执行&lt;/h2&gt;&lt;p&gt;shell脚本通常是一个以shebang起始的文本文件：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;#!/bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;代表该脚本将由&lt;code&gt;/bin/bash&lt;/code&gt;解析执行&lt;/p&gt;
 &lt;p&gt;有两种运行脚本的方式。一种是将脚本作为bash的命令行参数另一种是授予脚本执行权限，将其变成科执行文件。&lt;/p&gt;
 &lt;p&gt;将脚本作为命令行运行方式如下：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ bash script.sh&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ bash &lt;span class=&quot;keyword&quot;&gt;script&lt;/span&gt;.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;如果将脚本作为命令行参数使用则可以不使用shebang。&lt;/p&gt;
 &lt;p&gt;将脚本作为可执行文件来执行，需要现将其赋予执行权限：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ chmod a+x script.sh&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ chmod a+x &lt;span class=&quot;keyword&quot;&gt;script&lt;/span&gt;.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然后便可像下面这样执行：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ ./script.sh&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ./&lt;span class=&quot;keyword&quot;&gt;script&lt;/span&gt;.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;内核会读取脚本的首行并注意到shebang为&lt;code&gt;#!/bin/bash&lt;/code&gt; 。它识别出/bin/bash并在内部像这样执行该脚本：&lt;br&gt;$ /bin/bash script.sh&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;终端打印&quot;&gt;&lt;a href=&quot;#终端打印&quot; class=&quot;headerlink&quot; title=&quot;终端打印&quot;&gt;&lt;/a&gt;终端打印&lt;/h1&gt;&lt;p&gt;终端是交互式工具，用户可以通过它与shell环境进行交互。&lt;/p&gt;
 &lt;h2 id=&quot;echo&quot;&gt;&lt;a href=&quot;#echo&quot; class=&quot;headerlink&quot; title=&quot;echo&quot;&gt;&lt;/a&gt;echo&lt;/h2&gt;&lt;p&gt;在默认情况下，echo在每次调用后会添加一个换行符。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ echo &amp;quot;Welcome to Bash&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Welcome to Bash&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome to Bash&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;使用&lt;code&gt;-n&lt;/code&gt;参数可以忽略默认的换行。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ echo -n &amp;#39;Welcome to Bash&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;string&quot;&gt;&#39;Welcome to Bash&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome to Bash%&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;不带双引号也可以打印出相同的结果：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ echo Welcome to Bash&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sqf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; Welcome &lt;span class=&quot;keyword&quot;&gt;to&lt;/span&gt; Bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome to Bash&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -57,21 +57,21 @@
 &lt;p&gt;单引号是强引用，双引号是弱引用。&lt;/p&gt;
 &lt;p&gt;单引号里的所有内容会被全部照样输出，双引号会先进行必要的转义之后才会输出。&lt;/p&gt;
 &lt;p&gt;比如：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ echo &amp;#39;Welcome\nto\nBash&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Welcome\nto\nBash&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcome\nto\nBash&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;$ echo &amp;quot;Welcome\nto\nBash&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Welcome\nto\nBash&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcom&lt;br&gt;to&lt;br&gt;Bash&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;可以使用&lt;code&gt;-e&lt;/code&gt;参数强制转义输出：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ echo -e &amp;#39;Welcome\nto\nBash&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Welcome\nto\nBash&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Welcom&lt;br&gt;to&lt;br&gt;Bash&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;printf&quot;&gt;&lt;a href=&quot;#printf&quot; class=&quot;headerlink&quot; title=&quot;printf&quot;&gt;&lt;/a&gt;printf&lt;/h2&gt;&lt;p&gt;printf使用的参数和C语言中的printf函数一样。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ printf &amp;quot;Hello World&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Hello World&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -82,20 +82,24 @@
 &lt;p&gt;%-5s 指明了一个格式为左对齐且宽度为5的字符串替换。如果不使用&lt;code&gt;-&lt;/code&gt;指定对其方式，字符串就会采用右对齐形式。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;变量、环境变量&quot;&gt;&lt;a href=&quot;#变量、环境变量&quot; class=&quot;headerlink&quot; title=&quot;变量、环境变量&quot;&gt;&lt;/a&gt;变量、环境变量&lt;/h1&gt;&lt;p&gt;查看进程相关变量：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cat /proc/$PID/environ&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight mel&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cat /&lt;span class=&quot;keyword&quot;&gt;proc&lt;/span&gt;/$PID/environ&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;grep vim # 获取vim进程的ID&lt;/code&gt;&lt;br&gt;&lt;code&gt;cat /proc/$PID/environ | tr &amp;#39;\0&amp;#39; &amp;#39;\n&amp;#39; # 优化输出&lt;/code&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;赋值&quot;&gt;&lt;a href=&quot;#赋值&quot; class=&quot;headerlink&quot; title=&quot;赋值&quot;&gt;&lt;/a&gt;赋值&lt;/h2&gt;&lt;p&gt;赋值&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;var=&amp;#39;value&amp;#39;&lt;/code&gt; # 不能写成&lt;code&gt;var = &amp;#39;value&amp;#39;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;引用变量：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;$var` or `echo $&amp;#123;var&amp;#125;```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;可以在双引号中引用变量：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```echo &amp;quot;$var&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;设置环境变量&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;HTTP_PROXY=192.168.1.23.3128&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;expot HTTP_PROXY&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&#39;value&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# 不能写成&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;value&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;引用变量：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;echo $var&lt;br&gt;echo ${var}&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;可以在双引号中引用变量：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;echo “$var”&lt;br&gt;&lt;figure class=&quot;highlight autohotkey&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;设置环境变量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; HTTP_PROXY=&lt;span class=&quot;number&quot;&gt;192.168&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;1.23&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;3128&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; expot HTTP_PROXY&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;在PATH中添加路径：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;PATH=&quot;$PATH:/home/usr/bin&quot;```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;获取字符长度：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```echo $&amp;#123;\#var&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:/home/usr/bin&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;获取字符长度：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$&amp;#123;\#var&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;获取当前shell：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;$SHELL``` or ```echo $0```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 在.bashrc中添加下面函数：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```prepend() &amp;#123; [ -d &amp;quot;$2&amp;quot; ] &amp;amp;&amp;amp; eval $1=\&amp;quot;$2\$\&amp;#123;$1:+&amp;apos;:&amp;apos;\$$1\&amp;#125;\&amp;quot; &amp;amp;&amp;amp; export $1;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$SHELL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在.bashrc中添加下面函数：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;prepend&lt;/span&gt;&lt;/span&gt;() &amp;#123; [ &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$2&lt;/span&gt;&quot;&lt;/span&gt; ] &amp;amp;&amp;amp; &lt;span class=&quot;built_in&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt;=\&lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$2&lt;/span&gt;\$\&amp;#123;&lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt;:+&#39;:&#39;\$&lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt;\&amp;#125;\&quot; &amp;amp;&amp;amp; export &lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt;;  &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;则可以直接这样添加路径：&lt;br&gt;&lt;code&gt;prepend PATH /home/usr/bin&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
